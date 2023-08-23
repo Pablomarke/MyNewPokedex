@@ -31,7 +31,9 @@ class PokemonDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var imageUrl = URL(string: model.sprites!.other.officialArtwork.front_default)
+        initView.backgroundColor = model.pokeColor()
+        
+        let imageUrl = URL(string: model.sprites!.other.officialArtwork.front_default)
         pokemonImage.kf.setImage(with: imageUrl)
         
         pokeName.text = model.name.firstUpper()

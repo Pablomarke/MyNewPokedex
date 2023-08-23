@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct Pokemon: Codable {
     var base_experience: Int
@@ -72,5 +73,32 @@ struct OfficialArtwork: Codable {
     enum CodingKeys: CodingKey {
         case front_default
         case front_shiny
+    }
+}
+
+extension Pokemon {
+    
+    func pokeColor() -> UIColor {
+        if self.types?[0].type?.name == "water" {
+            return .systemBlue
+        } else if self.types?[0].type?.name == "grass" {
+            return .systemMint
+        } else if self.types?[0].type?.name == "fire" {
+           return .systemRed
+        } else if self.types?[0].type?.name == "ground" {
+            return .systemBrown
+        } else if self.types?[0].type?.name == "normal" {
+            return .systemGray3
+        } else if self.types?[0].type?.name == "electric" {
+           return .systemYellow
+        } else if self.types?[0].type?.name == "bug" {
+           return .systemTeal
+        } else if self.types?[0].type?.name == "poison" {
+           return .systemGreen
+        } else if self.types?[0].type?.name == "fairy" {
+           return .systemPink
+        } else {
+           return .black
+        }
     }
 }
