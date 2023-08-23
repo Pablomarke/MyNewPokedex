@@ -22,7 +22,8 @@ class PokemonCell: UICollectionViewCell {
         super.awakeFromNib()
         
         pokeName.textColor = .white
-      
+        
+        pokeName.font = .boldSystemFont(ofSize: 16)
         backView.layer.cornerRadius = 22
         
         typeView.layer.cornerRadius = 11

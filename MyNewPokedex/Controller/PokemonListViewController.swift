@@ -16,7 +16,7 @@ class PokemonListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         ///Title
-        titleLabel.text = "POKEDEX"
+        titleLabel.text = "Pokedex"
         titleLabel.font = .boldSystemFont(ofSize: 36)
         
         ///Collection
@@ -46,18 +46,28 @@ extension PokemonListViewController: UICollectionViewDataSource,
                                                          for: indexPath) as! PokemonCell
         
         poke.getPokemonId(id: indexPath.row + 1) { pokemon in
-            cell.pokeName.text = pokemon.name
+            cell.pokeName.text = pokemon.name.firstUpper()
             
             if pokemon.types?[0].type?.name == "water" {
                 cell.backView.backgroundColor = .systemBlue
+            } else if pokemon.types?[0].type?.name == "grass" {
+                cell.backView.backgroundColor = .systemMint
             } else if pokemon.types?[0].type?.name == "fire" {
                 cell.backView.backgroundColor = .systemRed
-            } else if pokemon.types?[0].type?.name == "bug" {
+            } else if pokemon.types?[0].type?.name == "ground" {
                 cell.backView.backgroundColor = .systemBrown
             } else if pokemon.types?[0].type?.name == "normal" {
-                cell.backView.backgroundColor = .systemGray
+                cell.backView.backgroundColor = .systemGray3
+            } else if pokemon.types?[0].type?.name == "electric" {
+                cell.backView.backgroundColor = .systemYellow
+            } else if pokemon.types?[0].type?.name == "bug" {
+                cell.backView.backgroundColor = .systemTeal
+            } else if pokemon.types?[0].type?.name == "poison" {
+                cell.backView.backgroundColor = .systemGreen
+            } else if pokemon.types?[0].type?.name == "fairy" {
+                cell.backView.backgroundColor = .systemPink
             } else {
-                cell.backView.backgroundColor = .systemMint
+                cell.backView.backgroundColor = .black
             }
             
             let myurl = URL(string: pokemon.sprites!.other.officialArtwork.front_default)
