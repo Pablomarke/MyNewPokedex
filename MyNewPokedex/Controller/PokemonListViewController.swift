@@ -12,7 +12,7 @@ class PokemonListViewController: UIViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var pokemonCollection: UICollectionView!
- 
+    let poke = PokemonApi()
     override func viewDidLoad() {
         super.viewDidLoad()
         ///Title
@@ -41,7 +41,7 @@ extension PokemonListViewController: UICollectionViewDataSource,
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let poke = PokemonApi()
+        
         let cell = pokemonCollection.dequeueReusableCell(withReuseIdentifier: "pokeCell",
                                                          for: indexPath) as! PokemonCell
         
@@ -82,11 +82,19 @@ extension PokemonListViewController: UICollectionViewDataSource,
         } failure: { error in
             print(error ?? "Error")
         }
-        
-
-
+     
         return cell
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView,
+                        didSelectItemAt indexPath: IndexPath) {
+        poke.getPokemonId(id: indexPath.row + 1) { pokemon in
+            let detail = PokemonDetailViewController(model: pokemon)
+            self.navigationController?.pushViewController(detail,
+                                                     animated: true)
+        } failure: { error in
+            self.titleLabel.text = "Error"
+        }
+
+    }
 }
