@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="StatsCell" customModule="MyNewPokedex" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="360" height="40"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="360" height="40"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eHp-ov-eFg">
+                        <rect key="frame" x="24" y="0.0" width="80" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="V5i-5T-7nM"/>
+                            <constraint firstAttribute="height" constant="40" id="y92-1R-jSy"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="wR2-5Q-SYZ">
+                        <rect key="frame" x="176" y="18" width="160" height="4"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="160" id="TRG-eR-oJr"/>
+                        </constraints>
+                    </progressView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A4y-on-hpr">
+                        <rect key="frame" x="136" y="10.666666666666666" width="32" height="20.333333333333336"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="32" id="t7V-bf-6YP"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="wR2-5Q-SYZ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="17y-YP-U0R"/>
+                    <constraint firstAttribute="bottom" secondItem="A4y-on-hpr" secondAttribute="bottom" constant="9" id="ElZ-ux-ilA"/>
+                    <constraint firstAttribute="bottom" secondItem="wR2-5Q-SYZ" secondAttribute="bottom" constant="18" id="L27-Io-6G3"/>
+                    <constraint firstItem="wR2-5Q-SYZ" firstAttribute="leading" secondItem="A4y-on-hpr" secondAttribute="trailing" constant="8" id="cDC-cB-qPG"/>
+                    <constraint firstAttribute="trailing" secondItem="wR2-5Q-SYZ" secondAttribute="trailing" constant="24" id="gce-jb-fbg"/>
+                    <constraint firstItem="eHp-ov-eFg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="24" id="iHa-hg-Egy"/>
+                    <constraint firstItem="wR2-5Q-SYZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="18" id="l7D-LJ-1Vb"/>
+                    <constraint firstItem="eHp-ov-eFg" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="nJ2-Vf-DEb"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="numberLabel" destination="A4y-on-hpr" id="nDO-Km-DFl"/>
+                <outlet property="progressView" destination="wR2-5Q-SYZ" id="qSZ-Xu-8JS"/>
+                <outlet property="statLabel" destination="eHp-ov-eFg" id="Jq5-bU-iSN"/>
+            </connections>
+            <point key="canvasLocation" x="-6" y="-11"/>
+        </tableViewCell>
+    </objects>
+</document>

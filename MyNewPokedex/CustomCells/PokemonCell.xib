@@ -20,6 +20,10 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X4Q-MM-B2m">
                         <rect key="frame" x="0.0" y="0.0" width="160" height="120"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MO9-AA-lnF">
+                                <rect key="frame" x="0.0" y="0.0" width="160" height="120"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0zJ-7P-KhE">
                                 <rect key="frame" x="74" y="34" width="80" height="80"/>
                                 <constraints>
@@ -82,8 +86,12 @@
                             <constraint firstItem="8Oa-Jy-wyJ" firstAttribute="leading" secondItem="X4Q-MM-B2m" secondAttribute="leading" constant="6" id="0xX-3w-Ey8"/>
                             <constraint firstItem="7K7-6o-Zxp" firstAttribute="leading" secondItem="X4Q-MM-B2m" secondAttribute="leading" constant="6" id="3wI-Nz-lDS"/>
                             <constraint firstItem="8Oa-Jy-wyJ" firstAttribute="top" secondItem="7K7-6o-Zxp" secondAttribute="bottom" constant="8" id="BDp-Fh-OZa"/>
+                            <constraint firstItem="MO9-AA-lnF" firstAttribute="leading" secondItem="X4Q-MM-B2m" secondAttribute="leading" id="BYQ-Ag-fl5"/>
+                            <constraint firstAttribute="trailing" secondItem="MO9-AA-lnF" secondAttribute="trailing" id="PhZ-Dp-T3b"/>
+                            <constraint firstAttribute="bottom" secondItem="MO9-AA-lnF" secondAttribute="bottom" id="cf1-ZW-f9p"/>
                             <constraint firstItem="7K7-6o-Zxp" firstAttribute="top" secondItem="HG4-pQ-hME" secondAttribute="bottom" constant="8" id="frp-M5-WLX"/>
                             <constraint firstAttribute="bottom" secondItem="0zJ-7P-KhE" secondAttribute="bottom" constant="6" id="ifR-Tm-6GI"/>
+                            <constraint firstItem="MO9-AA-lnF" firstAttribute="top" secondItem="X4Q-MM-B2m" secondAttribute="top" id="ldc-9a-T4K"/>
                             <constraint firstAttribute="trailing" secondItem="0zJ-7P-KhE" secondAttribute="trailing" constant="6" id="luH-wh-0DT"/>
                             <constraint firstItem="HG4-pQ-hME" firstAttribute="top" secondItem="X4Q-MM-B2m" secondAttribute="top" constant="12" id="mbR-nc-TkF"/>
                             <constraint firstItem="HG4-pQ-hME" firstAttribute="leading" secondItem="X4Q-MM-B2m" secondAttribute="leading" constant="8" id="qoy-Ws-5hO"/>
@@ -100,6 +108,7 @@
             </constraints>
             <connections>
                 <outlet property="backView" destination="X4Q-MM-B2m" id="qbO-Za-Svb"/>
+                <outlet property="filterView" destination="MO9-AA-lnF" id="6Sn-pb-EId"/>
                 <outlet property="pokeImage" destination="0zJ-7P-KhE" id="6fC-Ni-Szm"/>
                 <outlet property="pokeName" destination="HG4-pQ-hME" id="eHb-Wz-jsq"/>
                 <outlet property="type2Label" destination="UEr-Es-sKG" id="iIi-Tc-zvH"/>

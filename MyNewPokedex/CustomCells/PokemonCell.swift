@@ -13,6 +13,7 @@ class PokemonCell: UICollectionViewCell {
     @IBOutlet weak var pokeName: UILabel!
     @IBOutlet weak var pokeImage: UIImageView!
 
+    @IBOutlet weak var filterView: UIView!
     @IBOutlet weak var typeView: UIView!
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var type2View: UIView!
@@ -25,7 +26,7 @@ class PokemonCell: UICollectionViewCell {
         
         pokeName.font = .boldSystemFont(ofSize: 16)
         backView.layer.cornerRadius = 22
-        
+        filterView.backgroundColor = UIColor(white: 1, alpha: 0.25)
         typeView.layer.cornerRadius = 11
         typeView.backgroundColor = UIColor(white: 1, alpha: 0.33)
         typeLabel.textColor = .white
