@@ -15,7 +15,7 @@ class StatsCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-       
+        statLabel.textColor = .systemGray2
         
     }
 
@@ -29,6 +29,7 @@ class StatsCell: UITableViewCell {
 }
 
 extension StatsCell {
+    
     func reduceText(){
         if statLabel.text == "Special-attack"{
             statLabel.text = "Sp. Atk"

@@ -17,6 +17,7 @@ struct Pokemon: Codable {
     var types: [PokeType]?
     var sprites: Sprites?
     var stats: [Stats]
+    var abilities: [SingleAbility]
     
     enum CodingKeys: CodingKey {
         case base_experience
@@ -27,6 +28,7 @@ struct Pokemon: Codable {
         case types
         case sprites
         case stats
+        case abilities
     }
 }
 
@@ -100,6 +102,28 @@ struct Stat: Codable {
     }
     
 }
+struct SingleAbility: Codable {
+    var ability: Ability
+    var is_hidden: Bool
+    var slot: Int
+    
+    enum CodingKeys: CodingKey {
+        case ability
+        case is_hidden
+        case slot
+    }
+}
+
+struct Ability: Codable {
+    var name: String
+    var url: String
+    
+    enum CodingKeys: CodingKey {
+        case name
+        case url
+    }
+}
+
 extension Pokemon {
     
     func pokeColor() -> UIColor {
