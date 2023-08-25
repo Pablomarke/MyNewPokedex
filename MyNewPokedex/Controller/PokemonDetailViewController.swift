@@ -75,7 +75,7 @@ class PokemonDetailViewController: UIViewController {
         pokeName.text = model.name.firstUpper()
         pokeName.textColor = .white
         
-        var numId = String(model.id).left(total: 3, cadena: "0")
+        let numId = String(model.id).left(total: 3, cadena: "0")
         pokeNumber.text = "#\(numId)"
         pokeNumber.textColor = .white
         bottomView.layer.cornerRadius = 40
@@ -114,8 +114,10 @@ class PokemonDetailViewController: UIViewController {
             aboutView.isHidden = false
             
         } else if segmentedC.selectedSegmentIndex == 3 {
-            detailTable.isHidden = true
-            aboutView.isHidden = false
+            //moves
+            detailTable.isHidden = false
+            aboutView.isHidden = true
+            detailTable.reloadData()
             
         }
     }
@@ -128,13 +130,22 @@ extension PokemonDetailViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let statCell = detailTable.dequeueReusableCell(withIdentifier: "sCell",
                                                        for: indexPath) as! StatsCell
-        statCell.statLabel.text = model.stats[indexPath.row].stat.name.firstUpper()
-        statCell.reduceText()
-        let statNumber = model.stats[indexPath.row].base_stat
-        statCell.numberLabel.text = String(statNumber)
-        statCell.statProgress(number: statNumber)
-        return statCell
+        let moveCell = UITableViewCell(style: .value1, reuseIdentifier: "mCell")
+        
+        if segmentedC.selectedSegmentIndex == 1 {
+            statCell.statLabel.text = model.stats[indexPath.row].stat.name.firstUpper()
+            statCell.reduceText()
+            let statNumber = model.stats[indexPath.row].base_stat
+            statCell.numberLabel.text = String(statNumber)
+            statCell.statProgress(number: statNumber)
+            return statCell
+        } else if segmentedC.selectedSegmentIndex == 3 {
+            moveCell.textLabel?.text = model.moves[indexPath.row].move.name.firstUpper()
+            return moveCell
+        }
+        return moveCell
     }
 }
