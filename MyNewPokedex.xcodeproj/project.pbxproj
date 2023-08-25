@@ -127,9 +127,7 @@
 				39B4A0722A93BDCD009846D4 /* View */,
 				39B4A0712A93BDC6009846D4 /* Model */,
 				398906E82A93BBE300BF2288 /* AppDelegate.swift */,
-				398906EE2A93BBE300BF2288 /* Main.storyboard */,
 				398906F12A93BBE600BF2288 /* Assets.xcassets */,
-				398906F32A93BBE600BF2288 /* LaunchScreen.storyboard */,
 				398906F62A93BBE600BF2288 /* Info.plist */,
 				3985E4722A95E34300CDEB44 /* Extensions.swift */,
 			);
@@ -164,6 +162,8 @@
 		39B4A0722A93BDCD009846D4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				398906F32A93BBE600BF2288 /* LaunchScreen.storyboard */,
+				398906EE2A93BBE300BF2288 /* Main.storyboard */,
 				39B4A06E2A93BC41009846D4 /* PokemonListViewController.xib */,
 				3985E4752A95E9D100CDEB44 /* PokemonDetailViewController.xib */,
 			);

@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+// MARK: Pokemon Base
 struct Pokemon: Codable {
     var base_experience: Int
     var height: Int
@@ -50,6 +51,29 @@ struct Type: Codable {
     }
 }
 
+struct Stats: Codable {
+    var base_stat: Int
+    var effort: Int
+    var stat: Stat
+    
+    enum CodingKeys: CodingKey {
+        case base_stat
+        case effort
+        case stat
+    }
+}
+
+struct Stat: Codable {
+    var name: String
+    var url: String
+    
+    enum CodingKeys: CodingKey {
+        case name
+        case url
+    }
+    
+}
+// MARK: Images
 struct Sprites: Codable {
     var front_default: String
     var other: Other
@@ -78,30 +102,12 @@ struct OfficialArtwork: Codable {
     }
 }
 
-struct Stats: Codable {
-    var base_stat: Int
-    var effort: Int
-    var stat: Stat
-    
-    enum CodingKeys: CodingKey {
-        case base_stat
-        case effort
-        case stat
-    }
-}
 
-struct Stat: Codable {
-    var name: String
-    var url: String
-    
-    enum CodingKeys: CodingKey {
-        case name
-        case url
-    }
-    
-}
+
+// MARK: Extensions
 extension Pokemon {
     
+    ///color background
     func pokeColor() -> UIColor {
         if self.types?[0].type?.name == "water" {
             return .systemBlue

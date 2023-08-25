@@ -10,14 +10,22 @@ import Kingfisher
 
 class PokemonListViewController: UIViewController {
 
+    // MARK: Outlets
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var pokemonCollection: UICollectionView!
+    
+    // MARK: constants
     let poke = PokemonApi()
+    
+    // MARK: ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         ///Title
         titleLabel.text = "Pokedex"
         titleLabel.font = .boldSystemFont(ofSize: 36)
+        
+        ///Background
+        self.view.backgroundColor = .white
         
         ///Collection
         pokemonCollection.dataSource = self
@@ -25,14 +33,13 @@ class PokemonListViewController: UIViewController {
         pokemonCollection.register(UINib(nibName: "PokemonCell",
                                          bundle: nil),
                                    forCellWithReuseIdentifier: "pokeCell")
-        
-        self.view.backgroundColor = .white
     }
 }
 
+// MARK: Collection dataSource y Delegate
 extension PokemonListViewController: UICollectionViewDataSource,
                                      UICollectionViewDelegate {
-    
+    /// Datasource
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
         return 50
@@ -40,18 +47,18 @@ extension PokemonListViewController: UICollectionViewDataSource,
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        
+        ///create cell
         let cell = pokemonCollection.dequeueReusableCell(withReuseIdentifier: "pokeCell",
                                                          for: indexPath) as! PokemonCell
-        
+        /// get pokemon by id in indexpath.row
         poke.getPokemonId(id: indexPath.row + 1) { pokemon in
             cell.pokeName.text = pokemon.name.firstUpper()
             cell.backView.backgroundColor = pokemon.pokeColor()
+            cell.typeLabel.text = pokemon.types?[0].type?.name
             
             let myurl = URL(string: pokemon.sprites!.other.officialArtwork.front_default)
             cell.pokeImage.kf.setImage(with: myurl)
-            cell.typeLabel.text = pokemon.types?[0].type?.name
+            
             if pokemon.types?.count == 2 {
              cell.type2Label.text = pokemon.types?[1].type?.name
             } else {
@@ -65,6 +72,7 @@ extension PokemonListViewController: UICollectionViewDataSource,
         return cell
     }
     
+    /// Delegate
     func collectionView(_ collectionView: UICollectionView,
                         didSelectItemAt indexPath: IndexPath) {
         poke.getPokemonId(id: indexPath.row + 1) { pokemon in

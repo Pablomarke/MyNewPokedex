@@ -9,10 +9,10 @@ import Foundation
 
 extension String {
     
+    ///  uppercassed firtst letter
     func firstUpper() -> String {
         return prefix(1).capitalized + dropFirst()
     }
-    
     mutating func capitalizeFirstLetter() {
         self = self.firstUpper()
     }
