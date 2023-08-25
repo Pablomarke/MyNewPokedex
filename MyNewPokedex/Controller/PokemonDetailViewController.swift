@@ -23,6 +23,7 @@ class PokemonDetailViewController: UIViewController {
     @IBOutlet weak var type2Label: UILabel!
     
     
+    @IBOutlet weak var aboutView: AboutView!
     
     @IBOutlet weak var detailStack: UIStackView!
     @IBOutlet weak var detailTable: UITableView!
@@ -74,7 +75,8 @@ class PokemonDetailViewController: UIViewController {
         pokeName.text = model.name.firstUpper()
         pokeName.textColor = .white
         
-        pokeNumber.text = "#\(String(model.id))"
+        let numId = String(model.id).left(total: 3, cadena: "0")
+        pokeNumber.text = "#\(numId)"
         pokeNumber.textColor = .white
         bottomView.layer.cornerRadius = 40
         
@@ -84,24 +86,39 @@ class PokemonDetailViewController: UIViewController {
         segmentedC.setTitle("Base Stats", forSegmentAt: 1)
         segmentedC.setTitle("Evolution", forSegmentAt: 2)
         segmentedC.setTitle("Moves", forSegmentAt: 3)
+        segmentedC.selectedSegmentIndex = 1
         
         /// Table
         detailTable.dataSource = self
         detailTable.register(UINib(nibName: "StatsCell",
                                    bundle: nil),
                              forCellReuseIdentifier: "sCell")
+        aboutView.isHidden = true
         
     }
     
     @IBAction func segmentSelect(_ sender: Any) {
         if segmentedC.selectedSegmentIndex == 0 {
-            segmentedC.backgroundColor = .red
+            aboutView.isHidden = false
+            detailTable.isHidden = true
+            aboutView.baseExpData.text = String(model.base_experience)
+            aboutView.heightData.text = String(model.height)
+            aboutView.weightData.text = String(model.weight)
+            aboutView.AbilitiesData.text = "\(model.abilities[0].ability.name) , \(model.abilities[1].ability.name)"
+            
         } else if segmentedC.selectedSegmentIndex == 1 {
-            segmentedC.backgroundColor = .blue
+            aboutView.isHidden = true
+            detailTable.isHidden = false
         } else if segmentedC.selectedSegmentIndex == 2 {
-            segmentedC.backgroundColor = .cyan
+            detailTable.isHidden = true
+            aboutView.isHidden = false
+            
         } else if segmentedC.selectedSegmentIndex == 3 {
-            segmentedC.backgroundColor = .brown
+            //moves
+            detailTable.isHidden = false
+            aboutView.isHidden = true
+            detailTable.reloadData()
+            
         }
     }
 }
@@ -113,13 +130,22 @@ extension PokemonDetailViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let statCell = detailTable.dequeueReusableCell(withIdentifier: "sCell",
                                                        for: indexPath) as! StatsCell
-        statCell.statLabel.text = model.stats[indexPath.row].stat.name.firstUpper()
-        statCell.reduceText()
-        let statNumber = model.stats[indexPath.row].base_stat
-        statCell.numberLabel.text = String(statNumber)
-        statCell.statProgress(number: statNumber)
-        return statCell
+        let moveCell = UITableViewCell(style: .value1, reuseIdentifier: "mCell")
+        
+        if segmentedC.selectedSegmentIndex == 1 {
+            statCell.statLabel.text = model.stats[indexPath.row].stat.name.firstUpper()
+            statCell.reduceText()
+            let statNumber = model.stats[indexPath.row].base_stat
+            statCell.numberLabel.text = String(statNumber)
+            statCell.statProgress(number: statNumber)
+            return statCell
+        } else if segmentedC.selectedSegmentIndex == 3 {
+            moveCell.textLabel?.text = model.moves[indexPath.row].move.name.firstUpper()
+            return moveCell
+        }
+        return moveCell
     }
 }

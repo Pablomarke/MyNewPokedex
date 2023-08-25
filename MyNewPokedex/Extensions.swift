@@ -16,6 +16,14 @@ extension String {
     mutating func capitalizeFirstLetter() {
         self = self.firstUpper()
     }
+    
+    func left(total:Int, cadena: String) -> String {
+    let pad = total - self.count;
+
+    return pad < 1 ? self : "".padding(toLength: pad, withPad: cadena, startingAt: 0)+self
+
+
+    }
 }
 
 

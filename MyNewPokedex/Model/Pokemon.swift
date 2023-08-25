@@ -18,6 +18,8 @@ struct Pokemon: Codable {
     var types: [PokeType]?
     var sprites: Sprites?
     var stats: [Stats]
+    var abilities: [SingleAbility]
+    var moves: [SelfMove]
     
     enum CodingKeys: CodingKey {
         case base_experience
@@ -28,6 +30,8 @@ struct Pokemon: Codable {
         case types
         case sprites
         case stats
+        case abilities
+        case moves
     }
 }
 
@@ -63,16 +67,7 @@ struct Stats: Codable {
     }
 }
 
-struct Stat: Codable {
-    var name: String
-    var url: String
-    
-    enum CodingKeys: CodingKey {
-        case name
-        case url
-    }
-    
-}
+
 // MARK: Images
 struct Sprites: Codable {
     var front_default: String
@@ -102,9 +97,68 @@ struct OfficialArtwork: Codable {
     }
 }
 
-
-
 // MARK: Extensions
+
+struct Stat: Codable {
+    var name: String
+    var url: String
+    
+    enum CodingKeys: CodingKey {
+        case name
+        case url
+    }
+    
+}
+
+struct SingleAbility: Codable {
+    var ability: Ability
+    var is_hidden: Bool
+    var slot: Int
+    
+    enum CodingKeys: CodingKey {
+        case ability
+        case is_hidden
+        case slot
+    }
+}
+
+struct Ability: Codable {
+    var name: String
+    var url: String
+    
+    enum CodingKeys: CodingKey {
+        case name
+        case url
+    }
+}
+
+
+struct Moves: Codable {
+    var move: SelfMove
+    
+    enum CodingKeys: CodingKey {
+        case move
+    }
+}
+
+struct SelfMove: Codable {
+    var move: Move
+    //TO DO: var version_group_details
+   
+    enum CodingKeys: CodingKey {
+        case move
+    }
+}
+struct Move: Codable {
+    var name: String
+    var url: String
+    
+    enum CodingKeys: CodingKey {
+        case name
+        case url
+    }
+}
+
 extension Pokemon {
     
     ///color background

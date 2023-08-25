@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		391518252A98C1F100526905 /* AboutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 391518242A98C1F100526905 /* AboutView.xib */; };
+		391518292A98C2A300526905 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391518282A98C2A300526905 /* AboutView.swift */; };
 		3985E4732A95E34300CDEB44 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3985E4722A95E34300CDEB44 /* Extensions.swift */; };
 		3985E4762A95E9D100CDEB44 /* PokemonDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3985E4742A95E9D100CDEB44 /* PokemonDetailViewController.swift */; };
 		3985E4772A95E9D100CDEB44 /* PokemonDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3985E4752A95E9D100CDEB44 /* PokemonDetailViewController.xib */; };
@@ -47,6 +49,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		391518242A98C1F100526905 /* AboutView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutView.xib; sourceTree = "<group>"; };
+		391518282A98C2A300526905 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		3985E4722A95E34300CDEB44 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		3985E4742A95E9D100CDEB44 /* PokemonDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailViewController.swift; sourceTree = "<group>"; };
 		3985E4752A95E9D100CDEB44 /* PokemonDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PokemonDetailViewController.xib; sourceTree = "<group>"; };
@@ -166,6 +170,8 @@
 				398906EE2A93BBE300BF2288 /* Main.storyboard */,
 				39B4A06E2A93BC41009846D4 /* PokemonListViewController.xib */,
 				3985E4752A95E9D100CDEB44 /* PokemonDetailViewController.xib */,
+				391518242A98C1F100526905 /* AboutView.xib */,
+				391518282A98C2A300526905 /* AboutView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -314,6 +320,7 @@
 				398906F22A93BBE600BF2288 /* Assets.xcassets in Resources */,
 				39B4A0702A93BC41009846D4 /* PokemonListViewController.xib in Resources */,
 				398906F02A93BBE300BF2288 /* Main.storyboard in Resources */,
+				391518252A98C1F100526905 /* AboutView.xib in Resources */,
 				39A0F4632A9751F3003BD1DA /* StatsCell.xib in Resources */,
 				3993D2EC2A94FB680031409F /* PokemonCell.xib in Resources */,
 				3985E4772A95E9D100CDEB44 /* PokemonDetailViewController.xib in Resources */,
@@ -345,6 +352,7 @@
 				39A0F4622A9751F3003BD1DA /* StatsCell.swift in Sources */,
 				3985E4732A95E34300CDEB44 /* Extensions.swift in Sources */,
 				3985E4762A95E9D100CDEB44 /* PokemonDetailViewController.swift in Sources */,
+				391518292A98C2A300526905 /* AboutView.swift in Sources */,
 				39B4A06F2A93BC41009846D4 /* PokemonListViewController.swift in Sources */,
 				39B4A0782A93BE67009846D4 /* PokemonApi.swift in Sources */,
 				39B4A0762A93BE20009846D4 /* Pokemon.swift in Sources */,
