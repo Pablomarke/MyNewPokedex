@@ -75,7 +75,8 @@ class PokemonDetailViewController: UIViewController {
         pokeName.text = model.name.firstUpper()
         pokeName.textColor = .white
         
-        pokeNumber.text = "#\(String(model.id))"
+        var numId = String(model.id).left(total: 3, cadena: "0")
+        pokeNumber.text = "#\(numId)"
         pokeNumber.textColor = .white
         bottomView.layer.cornerRadius = 40
         
