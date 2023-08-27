@@ -22,15 +22,11 @@ class PokemonDetailViewController: UIViewController {
     @IBOutlet weak var type2View: UIView!
     @IBOutlet weak var type2Label: UILabel!
     
-    
     @IBOutlet weak var aboutView: AboutView!
-    
     @IBOutlet weak var detailStack: UIStackView!
     @IBOutlet weak var detailTable: UITableView!
-    ///buttons
     
     @IBOutlet weak var segmentedC: UISegmentedControl!
-    
     
     var model: Pokemon
     
@@ -75,45 +71,42 @@ class PokemonDetailViewController: UIViewController {
         pokeName.text = model.name.firstUpper()
         pokeName.textColor = .white
         
-        let numId = String(model.id).left(total: 3, cadena: "0")
+        let numId = String(model.id).left(total: 3,
+                                          cadena: "0")
         pokeNumber.text = "#\(numId)"
         pokeNumber.textColor = .white
         bottomView.layer.cornerRadius = 40
         
         /// Segmented
-        segmentedC.backgroundColor = .white
         segmentedC.setTitle("About", forSegmentAt: 0)
         segmentedC.setTitle("Base Stats", forSegmentAt: 1)
-        segmentedC.setTitle("Evolution", forSegmentAt: 2)
-        segmentedC.setTitle("Moves", forSegmentAt: 3)
-        segmentedC.selectedSegmentIndex = 1
+        segmentedC.setTitle("Moves", forSegmentAt: 2)
+        segmentedC.selectedSegmentTintColor = model.pokeColor()
         
         /// Table
         detailTable.dataSource = self
         detailTable.register(UINib(nibName: "StatsCell",
                                    bundle: nil),
                              forCellReuseIdentifier: "sCell")
-        aboutView.isHidden = true
         
+        aboutView.baseExpData.text = String(model.base_experience)
+        aboutView.heightData.text = String(model.height)
+        aboutView.weightData.text = String(model.weight)
+        aboutView.AbilitiesData.text = "\(model.abilities[0].ability.name) , \(model.abilities[1].ability.name)"
     }
     
     @IBAction func segmentSelect(_ sender: Any) {
         if segmentedC.selectedSegmentIndex == 0 {
             aboutView.isHidden = false
             detailTable.isHidden = true
-            aboutView.baseExpData.text = String(model.base_experience)
-            aboutView.heightData.text = String(model.height)
-            aboutView.weightData.text = String(model.weight)
-            aboutView.AbilitiesData.text = "\(model.abilities[0].ability.name) , \(model.abilities[1].ability.name)"
+            
             
         } else if segmentedC.selectedSegmentIndex == 1 {
             aboutView.isHidden = true
             detailTable.isHidden = false
+            detailTable.reloadData()
+        
         } else if segmentedC.selectedSegmentIndex == 2 {
-            detailTable.isHidden = true
-            aboutView.isHidden = false
-            
-        } else if segmentedC.selectedSegmentIndex == 3 {
             //moves
             detailTable.isHidden = false
             aboutView.isHidden = true
@@ -142,7 +135,7 @@ extension PokemonDetailViewController: UITableViewDataSource {
             statCell.numberLabel.text = String(statNumber)
             statCell.statProgress(number: statNumber)
             return statCell
-        } else if segmentedC.selectedSegmentIndex == 3 {
+        } else if segmentedC.selectedSegmentIndex == 2 {
             moveCell.textLabel?.text = model.moves[indexPath.row].move.name.firstUpper()
             return moveCell
         }

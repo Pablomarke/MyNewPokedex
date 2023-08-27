@@ -23,13 +23,11 @@ class AboutView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
- 
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         commonInit()
-    
     }
 
     private func commonInit() {
@@ -40,10 +38,13 @@ class AboutView: UIView {
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         heightTitle.text = "Height"
+        heightTitle.textColor = .systemGray2
         weightTitle.text = "Weight"
+        weightTitle.textColor = .systemGray2
         AbilitiesTitle.text = "Abilities"
+        AbilitiesTitle.textColor = .systemGray2
         baseExpTitle.text = "Exp. Base"
+        baseExpTitle.textColor = .systemGray2
     }
-    
 }
 

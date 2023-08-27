@@ -37,7 +37,7 @@ struct Pokemon: Codable {
 
 struct PokeType: Codable {
     var slot: Int
-    var type: Type?
+    var type: PType?
     
     enum CodingKeys: CodingKey {
         case slot
@@ -45,7 +45,7 @@ struct PokeType: Codable {
     }
 }
 
-struct Type: Codable {
+struct PType: Codable {
     var name: String
     var url: String
     
@@ -66,7 +66,16 @@ struct Stats: Codable {
         case stat
     }
 }
-
+struct Stat: Codable {
+    var name: String
+    var url: String
+    
+    enum CodingKeys: CodingKey {
+        case name
+        case url
+    }
+    
+}
 
 // MARK: Images
 struct Sprites: Codable {
@@ -95,19 +104,6 @@ struct OfficialArtwork: Codable {
         case front_default
         case front_shiny
     }
-}
-
-// MARK: Extensions
-
-struct Stat: Codable {
-    var name: String
-    var url: String
-    
-    enum CodingKeys: CodingKey {
-        case name
-        case url
-    }
-    
 }
 
 struct SingleAbility: Codable {
@@ -159,6 +155,7 @@ struct Move: Codable {
     }
 }
 
+// MARK: Extensions
 extension Pokemon {
     
     ///color background

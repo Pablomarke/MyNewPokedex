@@ -50,7 +50,6 @@
                                                 <segment title="First"/>
                                                 <segment title="Second"/>
                                                 <segment title=""/>
-                                                <segment title=""/>
                                             </segments>
                                             <color key="selectedSegmentTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <connections>
