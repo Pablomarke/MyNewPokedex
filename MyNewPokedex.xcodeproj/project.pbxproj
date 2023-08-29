@@ -32,6 +32,8 @@
 		39B4A0762A93BE20009846D4 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B4A0752A93BE20009846D4 /* Pokemon.swift */; };
 		39B4A0782A93BE67009846D4 /* PokemonApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B4A0772A93BE67009846D4 /* PokemonApi.swift */; };
 		39B4A07B2A93BED0009846D4 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 39B4A07A2A93BED0009846D4 /* Alamofire */; };
+		39CA25482A9C7EDF001B4A66 /* CombatDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39CA25472A9C7EDF001B4A66 /* CombatDataView.xib */; };
+		39CA254A2A9C82EA001B4A66 /* CombatDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CA25492A9C82EA001B4A66 /* CombatDataView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +81,8 @@
 		39B4A06E2A93BC41009846D4 /* PokemonListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PokemonListViewController.xib; sourceTree = "<group>"; };
 		39B4A0752A93BE20009846D4 /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 		39B4A0772A93BE67009846D4 /* PokemonApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonApi.swift; sourceTree = "<group>"; };
+		39CA25472A9C7EDF001B4A66 /* CombatDataView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CombatDataView.xib; sourceTree = "<group>"; };
+		39CA25492A9C82EA001B4A66 /* CombatDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombatDataView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,8 +189,11 @@
 				398906EE2A93BBE300BF2288 /* Main.storyboard */,
 				39B4A06E2A93BC41009846D4 /* PokemonListViewController.xib */,
 				3985E4752A95E9D100CDEB44 /* PokemonDetailViewController.xib */,
+				3932C0912A9B73F5006369C6 /* CombatViewController.xib */,
 				391518242A98C1F100526905 /* AboutView.xib */,
 				391518282A98C2A300526905 /* AboutView.swift */,
+				39CA25472A9C7EDF001B4A66 /* CombatDataView.xib */,
+				39CA25492A9C82EA001B4A66 /* CombatDataView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -197,7 +204,6 @@
 				39B4A06D2A93BC41009846D4 /* PokemonListViewController.swift */,
 				3985E4742A95E9D100CDEB44 /* PokemonDetailViewController.swift */,
 				3932C0902A9B73F5006369C6 /* CombatViewController.swift */,
-				3932C0912A9B73F5006369C6 /* CombatViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -339,6 +345,7 @@
 				398906F02A93BBE300BF2288 /* Main.storyboard in Resources */,
 				391518252A98C1F100526905 /* AboutView.xib in Resources */,
 				39A0F4632A9751F3003BD1DA /* StatsCell.xib in Resources */,
+				39CA25482A9C7EDF001B4A66 /* CombatDataView.xib in Resources */,
 				3993D2EC2A94FB680031409F /* PokemonCell.xib in Resources */,
 				3985E4772A95E9D100CDEB44 /* PokemonDetailViewController.xib in Resources */,
 				3932C0932A9B73F5006369C6 /* CombatViewController.xib in Resources */,
@@ -372,6 +379,7 @@
 				3932C08A2A9B6C8F006369C6 /* VsModeGame.swift in Sources */,
 				3985E4762A95E9D100CDEB44 /* PokemonDetailViewController.swift in Sources */,
 				391518292A98C2A300526905 /* AboutView.swift in Sources */,
+				39CA254A2A9C82EA001B4A66 /* CombatDataView.swift in Sources */,
 				39B4A06F2A93BC41009846D4 /* PokemonListViewController.swift in Sources */,
 				39B4A0782A93BE67009846D4 /* PokemonApi.swift in Sources */,
 				39B4A0762A93BE20009846D4 /* Pokemon.swift in Sources */,

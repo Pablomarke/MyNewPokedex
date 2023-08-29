@@ -31,13 +31,11 @@ class VsModeGame {
     }
     
     func atack(p1: Player, p2: Player) -> Int {
-        var damage = p1.atk - p2.def
-        print(damage)
-        if damage <= 0 {
-            damage = 0
-        }
-        var realDamage = p2.hp - damage
+    
+        let def = Float(p2.def) * 0.6
+        let damage = p1.atk - Int(def)
         
+        let realDamage = p2.hp - damage
         return realDamage
     }
 }
