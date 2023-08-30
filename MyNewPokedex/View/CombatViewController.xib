@@ -181,7 +181,7 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Keb-8j-GOo">
                                     <rect key="frame" x="0.0" y="50" width="213" height="24"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Abilities" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G39-30-hHs">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Abilities &amp; Moves" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G39-30-hHs">
                                             <rect key="frame" x="0.0" y="0.0" width="213" height="24"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -206,8 +206,7 @@
                     </subviews>
                 </stackView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Combat Simulator" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jgQ-Yz-zmo">
-                    <rect key="frame" x="24" y="61" width="345" height="48"/>
-                    <color key="backgroundColor" systemColor="placeholderTextColor"/>
+                    <rect key="frame" x="24" y="48" width="345" height="48"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="48" id="7Gi-L4-q2y"/>
                     </constraints>
@@ -230,11 +229,11 @@
                 <constraint firstItem="fsa-wL-8ln" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="80" id="KzW-JC-u0W"/>
                 <constraint firstItem="ers-Ik-VrH" firstAttribute="leading" secondItem="fsa-wL-8ln" secondAttribute="trailing" constant="16" id="Q0v-eJ-cAb"/>
                 <constraint firstItem="d0W-zg-Hmv" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="VRP-Eh-7uZ"/>
-                <constraint firstItem="jgQ-Yz-zmo" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="2" id="dyQ-nS-vDg"/>
                 <constraint firstItem="d0W-zg-Hmv" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="fOq-wh-Ef8"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Bhg-Zl-tgW" secondAttribute="trailing" id="jDO-CV-WdY"/>
                 <constraint firstItem="ZIl-L5-EdR" firstAttribute="top" secondItem="fsa-wL-8ln" secondAttribute="bottom" id="jlK-an-2GE"/>
                 <constraint firstItem="ZIl-L5-EdR" firstAttribute="top" secondItem="ers-Ik-VrH" secondAttribute="bottom" constant="48" id="m87-We-pGJ"/>
+                <constraint firstItem="jgQ-Yz-zmo" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="48" id="nEh-53-Rvt"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ZIl-L5-EdR" secondAttribute="trailing" constant="16" id="npN-wc-YQa"/>
                 <constraint firstItem="uMb-G5-CSR" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="xEu-kB-DGl"/>
                 <constraint firstItem="fsa-wL-8ln" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="yaB-rV-69G"/>
@@ -247,9 +246,6 @@
         <image name="backcolor" width="240" height="160"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="placeholderTextColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29803921568627451" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

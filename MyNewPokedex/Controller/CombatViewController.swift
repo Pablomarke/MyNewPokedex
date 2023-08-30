@@ -49,6 +49,7 @@ class CombatViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        simulatorLabel.textColor = .systemYellow
         simulatorLabel.layer.cornerRadius = 24
        
         player2Dataview.syncViewPlayer(player: p2)
@@ -77,7 +78,8 @@ class CombatViewController: UIViewController {
         
         tableAtacks.dataSource = self
         tableAtacks.delegate = self
-        
+        tableAtacks.backgroundColor = UIColor.clear
+                tableAtacks.backgroundView = UIView.init(frame: CGRect.zero)
     }
 
 
@@ -100,15 +102,25 @@ class CombatViewController: UIViewController {
 
 extension CombatViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return p1.data.abilities.count
+        return p1.data.abilities.count + p1.data.moves.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .value1, reuseIdentifier: "ABICell")
         cell.backgroundColor = p1.data.pokeColor()
-        cell.textLabel?.text = p1.data.abilities[indexPath.row].ability.name
+            if indexPath.row <= (p1.data.abilities.count - 1) {
+                cell.textLabel?.text = p1.data.abilities[indexPath.row].ability.name
+            } else if indexPath.row >= (p1.data.abilities.count - 1) && indexPath.row <= (p1.data.abilities.count + p1.data.moves.count) - 3 {
+                cell.textLabel?.text = p1.data.moves[indexPath.row].move.name
+            }
         return cell
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        p2.hp = self.combat.atack(p1: p1, p2: p2)
+        player2Dataview.syncViewPlayer(player: p2)
+        if p2.hp <= 0 {
+            p2Image.isHidden = true
+        }
+    }
     
-   
 }
