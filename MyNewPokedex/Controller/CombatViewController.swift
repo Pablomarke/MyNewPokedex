@@ -87,7 +87,7 @@ class CombatViewController: UIViewController {
         p2.hp = self.combat.atack(p1: p1, p2: p2)
         player2Dataview.syncViewPlayer(player: p2)
         if p2.hp <= 0 {
-            p2Image.isHidden = true
+            p2Image.image = UIImage(named: "dead")
         }
     }
     
@@ -95,7 +95,7 @@ class CombatViewController: UIViewController {
         p1.hp = self.combat.atack(p1: p2, p2: p1)
         player1DataView.syncViewPlayer(player: p1)
         if p1.hp <= 0{
-            p1Image.isHidden = true
+            p1Image.image = UIImage(named: "dead")
         }
     }
 }
@@ -119,7 +119,7 @@ extension CombatViewController: UITableViewDelegate, UITableViewDataSource {
         p2.hp = self.combat.atack(p1: p1, p2: p2)
         player2Dataview.syncViewPlayer(player: p2)
         if p2.hp <= 0 {
-            p2Image.isHidden = true
+            p2Image.image = UIImage(named: "dead")
         }
     }
     
