@@ -92,11 +92,11 @@ class PokemonDetailViewController: UIViewController {
         aboutView.baseExpData.text = String(model.base_experience)
         aboutView.heightData.text = String(model.height)
         aboutView.weightData.text = String(model.weight)
-        if model.abilities.count == 2 {
-            aboutView.AbilitiesData.text = "\(model.abilities[0].ability.name) , \(model.abilities[1].ability.name)"
-        } else {
-            aboutView.AbilitiesData.text = "\(model.abilities[0].ability.name)"
-        }
+       // if model.abilities.count == 2 {
+         //   aboutView.AbilitiesData.text = "\(model.abilities[0].ability.name) , \(model.abilities[1].ability.name)"
+        //} else {
+          //  aboutView.AbilitiesData.text = "\(model.abilities[0].ability.name)"
+        //}
         
     }
     

@@ -56,9 +56,9 @@ struct PType: Codable {
 }
 
 struct Stats: Codable {
-    var base_stat: Int
-    var effort: Int
-    var stat: Stat
+    let base_stat: Int
+    let effort: Int
+    let stat: Stat
     
     enum CodingKeys: CodingKey {
         case base_stat
@@ -67,8 +67,8 @@ struct Stats: Codable {
     }
 }
 struct Stat: Codable {
-    var name: String
-    var url: String
+    let name: String
+    let url: String
     
     enum CodingKeys: CodingKey {
         case name
@@ -80,11 +80,13 @@ struct Stat: Codable {
 // MARK: Images
 struct Sprites: Codable {
     var front_default: String
+    var back_default: String
     var other: Other
     
     enum CodingKeys: CodingKey {
         case front_default
         case other
+        case back_default
     }
 }
 

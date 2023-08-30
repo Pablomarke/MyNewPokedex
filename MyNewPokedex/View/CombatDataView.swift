@@ -38,6 +38,7 @@ class CombatDataView: UIView {
         combatContentView.frame = self.bounds
         combatContentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         
+       
         hpLabel.text = "HP"
         hpLabel.textColor = .yellow
         combatContentView.layer.cornerRadius = 16
@@ -51,7 +52,7 @@ class CombatDataView: UIView {
 extension CombatDataView {
     func syncViewPlayer(player: Player) {
         nameLabel.text = player.data.name.firstUpper()
-        hpNumberLabel.text = "\(player.hp) / \(player.data.stats[0].base_stat)"
+        hpNumberLabel.text = "HP \(player.hp) / \(player.data.stats[0].base_stat)"
         progressHp.progress = Float(player.hp)/Float(player.data.stats[0].base_stat)
         colorProgress()
        

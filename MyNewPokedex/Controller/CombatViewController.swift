@@ -20,8 +20,16 @@ class CombatViewController: UIViewController {
     @IBOutlet weak var p2Image: UIImageView!
     @IBOutlet weak var p1ViewImage: UIView!
     @IBOutlet weak var p1Image: UIImageView!
-    
     @IBOutlet weak var menuStack: UIStackView!
+    
+    @IBOutlet weak var simulatorLabel: UILabel!
+    @IBOutlet weak var tableAtacks: UITableView!
+    
+    @IBOutlet weak var view1: UIView!
+    @IBOutlet weak var view2: UIView!
+    @IBOutlet weak var view3: UIView!
+    @IBOutlet weak var viewLabel: UILabel!
+    
     
     var p1: Player
     var p2: Player
@@ -41,7 +49,8 @@ class CombatViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .systemMint
+        simulatorLabel.layer.cornerRadius = 24
+       
         player2Dataview.syncViewPlayer(player: p2)
         p2Image.kf.setImage(with: URL(string: p2.data.sprites!.front_default))
         player1DataView.syncViewPlayer(player: p1)
@@ -52,21 +61,54 @@ class CombatViewController: UIViewController {
         p1ViewImage.layer.cornerRadius = 50
         p2ViewIamge.backgroundColor = .clear
         
-        menuStack.backgroundColor = .darkGray
+        menuStack.backgroundColor = .clear
+        viewLabel.text = "¿Qué quieres hacer?"
+        viewLabel.numberOfLines = 3
+        p1atk.setTitle("Atk. normal", for: .normal)
+        p1atk.tintColor = p1.data.pokeColor()
+        p2atk.setTitle("Atk. normal", for: .normal)
+        p2atk.tintColor = p2.data.pokeColor()
+        view1.backgroundColor = .black
+        view1.layer.cornerRadius = 12
+        view2.backgroundColor = .systemYellow
+        view2.layer.cornerRadius = 12
+        view3.backgroundColor = .darkGray
+        view3.layer.cornerRadius = 12
+        
+        tableAtacks.dataSource = self
+        tableAtacks.delegate = self
+        
     }
 
 
     @IBAction func p1atkAct(_ sender: Any) {
         p2.hp = self.combat.atack(p1: p1, p2: p2)
         player2Dataview.syncViewPlayer(player: p2)
+        if p2.hp <= 0 {
+            p2Image.isHidden = true
+        }
     }
     
     @IBAction func p2atkAct(_ sender: Any) {
         p1.hp = self.combat.atack(p1: p2, p2: p1)
         player1DataView.syncViewPlayer(player: p1)
+        if p1.hp <= 0{
+            p1Image.isHidden = true
+        }
     }
 }
 
-extension CombatViewController {
+extension CombatViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return p1.data.abilities.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: .value1, reuseIdentifier: "ABICell")
+        cell.backgroundColor = p1.data.pokeColor()
+        cell.textLabel?.text = p1.data.abilities[indexPath.row].ability.name
+        return cell
+    }
+    
    
 }
