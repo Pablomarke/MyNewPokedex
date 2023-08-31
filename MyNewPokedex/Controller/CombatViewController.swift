@@ -22,6 +22,7 @@ class CombatViewController: UIViewController {
     @IBOutlet weak var p1Image: UIImageView!
     @IBOutlet weak var menuStack: UIStackView!
     
+    @IBOutlet weak var secondStackView: UIStackView!
     @IBOutlet weak var simulatorLabel: UILabel!
     @IBOutlet weak var tableAtacks: UITableView!
     
@@ -62,6 +63,7 @@ class CombatViewController: UIViewController {
         p1ViewImage.layer.cornerRadius = 50
         p2ViewIamge.backgroundColor = .clear
         
+        secondStackView.backgroundColor = .clear
         menuStack.backgroundColor = .clear
         viewLabel.text = "¿Qué quieres hacer?"
         viewLabel.numberOfLines = 3
