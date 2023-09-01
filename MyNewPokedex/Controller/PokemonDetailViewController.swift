@@ -123,7 +123,13 @@ class PokemonDetailViewController: UIViewController {
 extension PokemonDetailViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
-        return model.stats.count
+        if segmentedC.selectedSegmentIndex == 1 {
+            return model.stats.count
+        } else if segmentedC.selectedSegmentIndex == 2 {
+            return model.moves.count
+        } else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView,
