@@ -77,8 +77,7 @@ extension PokemonListViewController: UICollectionViewDataSource,
                         didSelectItemAt indexPath: IndexPath) {
         poke.getPokemonId(id: indexPath.row + 1) { pokemon in
             let detail = PokemonDetailViewController(model: pokemon)
-            self.navigationController?.pushViewController(detail,
-                                                     animated: true)
+            self.navigationController?.showDetailViewController(detail, sender: nil)
         } failure: { error in
             self.titleLabel.text = "Error"
         }

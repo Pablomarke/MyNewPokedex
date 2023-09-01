@@ -53,6 +53,10 @@ class CombatViewController: UIViewController {
         simulatorLabel.textColor = .systemYellow
         simulatorLabel.layer.cornerRadius = 24
        
+        self.navigationController?.navigationBar.tintColor = .white
+        let backButton = UIBarButtonItem()
+        backButton.title = ""
+        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
         player2Dataview.syncViewPlayer(player: p2)
         p2Image.kf.setImage(with: URL(string: p2.data.sprites!.front_default))
         player1DataView.syncViewPlayer(player: p1)
@@ -126,3 +130,5 @@ extension CombatViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
 }
+
+
