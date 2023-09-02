@@ -12,6 +12,8 @@
 		3932C08A2A9B6C8F006369C6 /* VsModeGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3932C0892A9B6C8F006369C6 /* VsModeGame.swift */; };
 		3932C0922A9B73F5006369C6 /* CombatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3932C0902A9B73F5006369C6 /* CombatViewController.swift */; };
 		3932C0932A9B73F5006369C6 /* CombatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3932C0912A9B73F5006369C6 /* CombatViewController.xib */; };
+		397704CA2AA308DD000E57B2 /* SelectPokemonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397704C82AA308DD000E57B2 /* SelectPokemonViewController.swift */; };
+		397704CB2AA308DD000E57B2 /* SelectPokemonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 397704C92AA308DD000E57B2 /* SelectPokemonViewController.xib */; };
 		3985E4732A95E34300CDEB44 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3985E4722A95E34300CDEB44 /* Extensions.swift */; };
 		3985E4762A95E9D100CDEB44 /* PokemonDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3985E4742A95E9D100CDEB44 /* PokemonDetailViewController.swift */; };
 		3985E4772A95E9D100CDEB44 /* PokemonDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3985E4752A95E9D100CDEB44 /* PokemonDetailViewController.xib */; };
@@ -61,6 +63,8 @@
 		3932C0892A9B6C8F006369C6 /* VsModeGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VsModeGame.swift; sourceTree = "<group>"; };
 		3932C0902A9B73F5006369C6 /* CombatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombatViewController.swift; sourceTree = "<group>"; };
 		3932C0912A9B73F5006369C6 /* CombatViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CombatViewController.xib; sourceTree = "<group>"; };
+		397704C82AA308DD000E57B2 /* SelectPokemonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPokemonViewController.swift; sourceTree = "<group>"; };
+		397704C92AA308DD000E57B2 /* SelectPokemonViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectPokemonViewController.xib; sourceTree = "<group>"; };
 		3985E4722A95E34300CDEB44 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		3985E4742A95E9D100CDEB44 /* PokemonDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailViewController.swift; sourceTree = "<group>"; };
 		3985E4752A95E9D100CDEB44 /* PokemonDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PokemonDetailViewController.xib; sourceTree = "<group>"; };
@@ -210,6 +214,8 @@
 				3985E4742A95E9D100CDEB44 /* PokemonDetailViewController.swift */,
 				3932C0902A9B73F5006369C6 /* CombatViewController.swift */,
 				39BE14C82AA06EF100B6C21E /* HomeViewController.swift */,
+				397704C82AA308DD000E57B2 /* SelectPokemonViewController.swift */,
+				397704C92AA308DD000E57B2 /* SelectPokemonViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -353,6 +359,7 @@
 				39A0F4632A9751F3003BD1DA /* StatsCell.xib in Resources */,
 				39CA25482A9C7EDF001B4A66 /* CombatDataView.xib in Resources */,
 				3993D2EC2A94FB680031409F /* PokemonCell.xib in Resources */,
+				397704CB2AA308DD000E57B2 /* SelectPokemonViewController.xib in Resources */,
 				3985E4772A95E9D100CDEB44 /* PokemonDetailViewController.xib in Resources */,
 				3932C0932A9B73F5006369C6 /* CombatViewController.xib in Resources */,
 				39BE14CB2AA06EF100B6C21E /* HomeViewController.xib in Resources */,
@@ -392,6 +399,7 @@
 				39B4A0762A93BE20009846D4 /* Pokemon.swift in Sources */,
 				3993D2EB2A94FB680031409F /* PokemonCell.swift in Sources */,
 				39BE14CA2AA06EF100B6C21E /* HomeViewController.swift in Sources */,
+				397704CA2AA308DD000E57B2 /* SelectPokemonViewController.swift in Sources */,
 				3932C0922A9B73F5006369C6 /* CombatViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
