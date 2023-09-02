@@ -52,19 +52,7 @@ extension PokemonListViewController: UICollectionViewDataSource,
                                                          for: indexPath) as! PokemonCell
         /// get pokemon by id in indexpath.row
         poke.getPokemonId(id: indexPath.row + 1) { pokemon in
-            cell.pokeName.text = pokemon.name.firstUpper()
-            cell.backView.backgroundColor = pokemon.pokeColor()
-            cell.typeLabel.text = pokemon.types?[0].type?.name
-            
-            let myurl = URL(string: pokemon.sprites!.other.officialArtwork.front_default)
-            cell.pokeImage.kf.setImage(with: myurl)
-            
-            if pokemon.types?.count == 2 {
-             cell.type2Label.text = pokemon.types?[1].type?.name
-            } else {
-                cell.type2Label.isHidden = true
-                cell.type2View.isHidden = true
-            }
+            cell.configure(whit: pokemon)
         } failure: { error in
             print(error ?? "Error")
         }
@@ -81,6 +69,6 @@ extension PokemonListViewController: UICollectionViewDataSource,
         } failure: { error in
             self.titleLabel.text = "Error"
         }
-
+        
     }
 }

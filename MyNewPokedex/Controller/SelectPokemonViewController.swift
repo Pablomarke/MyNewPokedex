@@ -88,49 +88,25 @@ extension SelectPokemonViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        var cell = p1Collection.dequeueReusableCell(withReuseIdentifier: "pokeCell",
+        let cell = p1Collection.dequeueReusableCell(withReuseIdentifier: "pokeCell",
                                                     for: indexPath) as! PokemonCell
         if collectionView == p1Collection {
-            var cell = p1Collection.dequeueReusableCell(withReuseIdentifier: "pokeCell",
+            let cell = p1Collection.dequeueReusableCell(withReuseIdentifier: "pokeCell",
                                                         for: indexPath) as! PokemonCell
                 /// get pokemon by id in indexpath.row
                 poke.getPokemonId(id: indexPath.row + 1) { pokemon in
-                    cell.pokeName.text = pokemon.name.firstUpper()
-                    cell.backView.backgroundColor = pokemon.pokeColor()
-                    cell.typeLabel.text = pokemon.types?[0].type?.name
-                    
-                    let myurl = URL(string: pokemon.sprites!.other.officialArtwork.front_default)
-                    cell.pokeImage.kf.setImage(with: myurl)
-                    
-                    if pokemon.types?.count == 2 {
-                        cell.type2Label.text = pokemon.types?[1].type?.name
-                    } else {
-                        cell.type2Label.isHidden = true
-                        cell.type2View.isHidden = true
-                    }
+                    cell.configure(whit: pokemon)
                 } failure: { error in
                     print(error ?? "Error")
                 }
                 
                 return cell
         } else if collectionView == p2Collection {
-            var cell = p2Collection.dequeueReusableCell(withReuseIdentifier: "pokeCell",
+            let cell = p2Collection.dequeueReusableCell(withReuseIdentifier: "pokeCell",
                                                         for: indexPath) as! PokemonCell
                 /// get pokemon by id in indexpath.row
                 poke.getPokemonId(id: indexPath.row + 1) { pokemon in
-                    cell.pokeName.text = pokemon.name.firstUpper()
-                    cell.backView.backgroundColor = pokemon.pokeColor()
-                    cell.typeLabel.text = pokemon.types?[0].type?.name
-                    
-                    let myurl = URL(string: pokemon.sprites!.other.officialArtwork.front_default)
-                    cell.pokeImage.kf.setImage(with: myurl)
-                    
-                    if pokemon.types?.count == 2 {
-                        cell.type2Label.text = pokemon.types?[1].type?.name
-                    } else {
-                        cell.type2Label.isHidden = true
-                        cell.type2View.isHidden = true
-                    }
+                    cell.configure(whit: pokemon)
                 } failure: { error in
                     print(error ?? "Error")
                 }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class PokemonCell: UICollectionViewCell {
     @IBOutlet weak var backView: UIView!
@@ -37,4 +38,17 @@ class PokemonCell: UICollectionViewCell {
         type2Label.textColor = .white
     }
 
+    func configure(whit pokemon: Pokemon){
+        pokeName.text = pokemon.name.firstUpper()
+        backView.backgroundColor = pokemon.pokeColor()
+        let myurl = URL(string: pokemon.sprites!.other.officialArtwork.front_default)
+        pokeImage.kf.setImage(with: myurl)
+        typeLabel.text = pokemon.types?[0].type?.name
+        if pokemon.types?.count == 2 {
+        type2Label.text = pokemon.types?[1].type?.name
+        } else {
+            type2Label.isHidden = true
+            type2View.isHidden = true
+        }
+    }
 }
