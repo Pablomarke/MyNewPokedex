@@ -27,6 +27,7 @@ class PokemonCell: UICollectionViewCell {
         pokeName.font = .boldSystemFont(ofSize: 16)
         backView.layer.cornerRadius = 22
         filterView.backgroundColor = UIColor(white: 1, alpha: 0.25)
+        filterView.layer.cornerRadius = 22
         typeView.layer.cornerRadius = 11
         typeView.backgroundColor = UIColor(white: 1, alpha: 0.33)
         typeLabel.textColor = .white
