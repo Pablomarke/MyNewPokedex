@@ -23,48 +23,58 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="M1x-jH-Hl2">
-                    <rect key="frame" x="12" y="299" width="369" height="399"/>
+                    <rect key="frame" x="56" y="464" width="281" height="264"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TFX-fd-3nM">
-                            <rect key="frame" x="0.0" y="0.0" width="369" height="187.66666666666666"/>
+                            <rect key="frame" x="0.0" y="0.0" width="281" height="120"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="120" id="6jN-rL-T4c"/>
+                            </constraints>
                             <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="tinted" title="Button"/>
+                            <buttonConfiguration key="configuration" style="filled" title="Button">
+                                <color key="baseForegroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </buttonConfiguration>
                             <connections>
                                 <action selector="buttonOneAction:" destination="-1" eventType="touchUpInside" id="oJk-rf-sjc"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vSI-HK-lLX">
-                            <rect key="frame" x="0.0" y="211.66666666666669" width="369" height="187.33333333333331"/>
+                            <rect key="frame" x="0.0" y="144" width="281" height="120"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="120" id="sSS-bU-rZD"/>
+                            </constraints>
                             <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                            <buttonConfiguration key="configuration" style="filled" title="Button">
+                                <color key="baseForegroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </buttonConfiguration>
                             <connections>
                                 <action selector="buttonTwoAction:" destination="-1" eventType="touchUpInside" id="oAy-W9-Jn5"/>
                             </connections>
                         </button>
                     </subviews>
                 </stackView>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HRz-vV-dQs">
-                    <rect key="frame" x="12" y="83" width="369" height="180"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Poke" translatesAutoresizingMaskIntoConstraints="NO" id="HRz-vV-dQs">
+                    <rect key="frame" x="12" y="48" width="369" height="360"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="180" id="cme-ZN-m5H"/>
+                        <constraint firstAttribute="height" constant="360" id="cme-ZN-m5H"/>
                     </constraints>
                 </imageView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="M1x-jH-Hl2" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="12" id="0YE-tb-ZoO"/>
+                <constraint firstItem="M1x-jH-Hl2" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="56" id="0YE-tb-ZoO"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="HRz-vV-dQs" secondAttribute="trailing" constant="12" id="4Nh-rc-jHO"/>
-                <constraint firstItem="HRz-vV-dQs" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="24" id="DCE-IF-FR6"/>
+                <constraint firstItem="HRz-vV-dQs" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="48" id="Jsl-lj-unk"/>
                 <constraint firstItem="HRz-vV-dQs" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="12" id="KIa-hh-fQf"/>
-                <constraint firstItem="M1x-jH-Hl2" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="240" id="Y9u-7R-oGQ"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="M1x-jH-Hl2" secondAttribute="trailing" constant="12" id="sqT-FA-oUH"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="M1x-jH-Hl2" secondAttribute="bottom" constant="120" id="ycO-nI-Dad"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="M1x-jH-Hl2" secondAttribute="trailing" constant="56" id="sqT-FA-oUH"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="M1x-jH-Hl2" secondAttribute="bottom" constant="90" id="ycO-nI-Dad"/>
             </constraints>
             <point key="canvasLocation" x="-24" y="-11"/>
         </view>
     </objects>
     <resources>
+        <image name="Poke" width="1000" height="1000"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

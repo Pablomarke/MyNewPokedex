@@ -23,17 +23,17 @@ class SelectPokemonViewController: UIViewController {
     @IBOutlet weak var p2SelectedImage: UIImageView!
     @IBOutlet weak var actionButton: UIButton!
     
-    
     let poke = PokemonApi()
     var player1Poke: Int = 1
     var player2Poke: Int = 4
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         titleLabel.text = "Select your pokemon!"
         titleLabel.font = .boldSystemFont(ofSize: 32)
         titleLabel.textColor = .systemYellow
+        
+        navigationStyle(nav: navigationController!.self)
         
         p1SelectedImage.isHidden = true
         p2SelectedImage.isHidden = true
@@ -56,8 +56,8 @@ class SelectPokemonViewController: UIViewController {
                               forCellWithReuseIdentifier: "pokeCell")
         p2Collection.delegate = self
         
-        actionButton.isEnabled = false
-        actionButton.setTitle("Select Pokemon", for: .disabled)
+        actionButton.isHidden = true
+        
     }
 
     @IBAction func testaction(_ sender: Any) {
@@ -142,7 +142,7 @@ extension SelectPokemonViewController: UICollectionViewDelegate {
         
         if p2Label.text != "Player 2 pokemon" && p1Label.text != "Player 1 pokemon" {
             titleLabel.text = "To fight!"
-            actionButton.isEnabled = true
+            actionButton.isHidden = false
             actionButton.tintColor = .systemYellow
             actionButton.setTitle("To fight!!", for: .normal)
         }

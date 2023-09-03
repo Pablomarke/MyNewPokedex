@@ -20,6 +20,7 @@ class PokemonListViewController: UIViewController {
     // MARK: ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationStyle(nav: navigationController!.self)
         ///Title
         titleLabel.text = "Pokedex"
         titleLabel.font = .boldSystemFont(ofSize: 36)
