@@ -31,7 +31,7 @@ class CombatViewController: UIViewController {
     @IBOutlet weak var view3: UIView!
     @IBOutlet weak var viewLabel: UILabel!
     
-    
+    // MARK: constants
     let p1: Player
     let p2: Player
     let combat: VsModeGame
@@ -72,6 +72,7 @@ class CombatViewController: UIViewController {
         p1atk.tintColor = p1.data.pokeColor()
         p2atk.setTitle("Atk. normal", for: .normal)
         p2atk.tintColor = p2.data.pokeColor()
+        
         view1.backgroundColor = .black
         view1.layer.cornerRadius = 12
         view2.backgroundColor = .systemYellow
@@ -109,7 +110,8 @@ extension CombatViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .value1, reuseIdentifier: "ABICell")
+        let cell = UITableViewCell(style: .value1,
+                                   reuseIdentifier: "ABICell")
         cell.backgroundColor = p1.data.pokeColor()
             if indexPath.row <= (p1.data.abilities.count - 1) {
                 cell.textLabel?.text = p1.data.abilities[indexPath.row].ability.name
@@ -119,7 +121,8 @@ extension CombatViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView,
+                   didSelectRowAt indexPath: IndexPath) {
         p2.hp = self.combat.atack(p1: p1, p2: p2)
         player2Dataview.syncViewPlayer(player: p2)
         if p2.hp <= 0 {

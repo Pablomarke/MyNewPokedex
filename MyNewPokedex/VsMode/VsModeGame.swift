@@ -7,6 +7,7 @@
 
 import Foundation
 
+// MARK: Class to use pokemon
 class Player {
     var data: Pokemon
     var hp: Int
@@ -21,6 +22,7 @@ class Player {
     }
 }
 
+// MARK: Class for play
 class VsModeGame {
     let player1: Player
     let player2: Player
@@ -31,10 +33,8 @@ class VsModeGame {
     }
     
     func atack(p1: Player, p2: Player) -> Int {
-        
         let def = Float(p2.def) * 0.6
         let damage = p1.atk - Int(def)
-        
         let realDamage = p2.hp - damage
         return realDamage
     }

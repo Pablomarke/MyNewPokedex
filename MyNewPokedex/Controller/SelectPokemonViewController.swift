@@ -8,7 +8,7 @@
 import UIKit
 
 class SelectPokemonViewController: UIViewController {
-
+    // MARK: Outlets
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var p1LabelView: UIView!
     @IBOutlet weak var p1Label: UILabel!
@@ -16,10 +16,8 @@ class SelectPokemonViewController: UIViewController {
     @IBOutlet weak var p2Label: UILabel!
     
     @IBOutlet weak var p1Collection: UICollectionView!
-    
     @IBOutlet weak var p1SelectedImage: UIImageView!
     @IBOutlet weak var p2Collection: UICollectionView!
-    
     @IBOutlet weak var p2SelectedImage: UIImageView!
     @IBOutlet weak var actionButton: UIButton!
     
@@ -27,24 +25,26 @@ class SelectPokemonViewController: UIViewController {
     var player1Poke: Int = 1
     var player2Poke: Int = 4
    
+    // MARK: Viewdidload
     override func viewDidLoad() {
         super.viewDidLoad()
         titleLabel.text = "Select your pokemon!"
         titleLabel.font = .boldSystemFont(ofSize: 32)
         titleLabel.textColor = .systemYellow
-        
         navigationStyle(nav: navigationController!.self)
         
         p1SelectedImage.isHidden = true
         p2SelectedImage.isHidden = true
+        actionButton.isHidden = true
         
         p1LabelView.layer.cornerRadius = 22
         p2LabelView.layer.cornerRadius = 22
         p1Label.text = "Player 1 pokemon"
         p2Label.text = "Player 2 pokemon"
+        
+        ///collectionViews
         p1Collection.backgroundColor = .clear
         p2Collection.backgroundColor = .clear
-        
         p1Collection.dataSource = self
         p1Collection.register(UINib(nibName: "PokemonCell",
                                     bundle: nil),
@@ -55,11 +55,8 @@ class SelectPokemonViewController: UIViewController {
                                     bundle: nil),
                               forCellWithReuseIdentifier: "pokeCell")
         p2Collection.delegate = self
-        
-        actionButton.isHidden = true
-        
     }
-
+    // MARK: Buttons
     @IBAction func testaction(_ sender: Any) {
         let poke = PokemonApi.shared
         poke.getPokemonId(id: player1Poke) { pokemon in
@@ -81,13 +78,15 @@ class SelectPokemonViewController: UIViewController {
     }
 
 }
-
+// MARK: Collection Datasource
 extension SelectPokemonViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView,
+                        numberOfItemsInSection section: Int) -> Int {
         return 50
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = p1Collection.dequeueReusableCell(withReuseIdentifier: "pokeCell",
                                                     for: indexPath) as! PokemonCell
         if collectionView == p1Collection {
@@ -99,7 +98,6 @@ extension SelectPokemonViewController: UICollectionViewDataSource {
                 } failure: { error in
                     print(error ?? "Error")
                 }
-                
                 return cell
         } else if collectionView == p2Collection {
             let cell = p2Collection.dequeueReusableCell(withReuseIdentifier: "pokeCell",
@@ -110,26 +108,22 @@ extension SelectPokemonViewController: UICollectionViewDataSource {
                 } failure: { error in
                     print(error ?? "Error")
                 }
-                
                 return cell
         }
-        
         return cell
     }
-    
 }
+// MARK: Collection delegate
 extension SelectPokemonViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)  {
         if collectionView == p1Collection {
             player1Poke = indexPath.row + 1
             p1Collection.isHidden = true
             p1SelectedImage.isHidden = false
-            
             let cell2 =  p1Collection.cellForItem(at: indexPath) as! PokemonCell
            p1LabelView.backgroundColor = cell2.backView.backgroundColor
            p1Label.text = "Player 1 select \(cell2.pokeName.text!)"
           p1SelectedImage.image = cell2.pokeImage.image
-            
         } else if collectionView == p2Collection {
             player2Poke = indexPath.row + 1
             p2Collection.isHidden = true
@@ -139,7 +133,7 @@ extension SelectPokemonViewController: UICollectionViewDelegate {
            p2Label.text = "Player 2 select \(cell3.pokeName.text!)"
            p2SelectedImage.image = cell3.pokeImage.image
         }
-        
+        /// Show button
         if p2Label.text != "Player 2 pokemon" && p1Label.text != "Player 1 pokemon" {
             titleLabel.text = "To fight!"
             actionButton.isHidden = false

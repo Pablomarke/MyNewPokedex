@@ -9,25 +9,22 @@ import UIKit
 import Kingfisher
 
 class PokemonDetailViewController: UIViewController {
-    
+    // MARK: Outlets
     @IBOutlet weak var initView: UIView!
     @IBOutlet weak var pokemonImage: UIImageView!
     @IBOutlet weak var pokeName: UILabel!
     @IBOutlet weak var pokeNumber: UILabel!
     @IBOutlet weak var bottomView: UIView!
-    
     @IBOutlet weak var type1View: UIView!
     @IBOutlet weak var type1Label: UILabel!
-    
     @IBOutlet weak var type2View: UIView!
     @IBOutlet weak var type2Label: UILabel!
-    
     @IBOutlet weak var aboutView: AboutView!
     @IBOutlet weak var detailStack: UIStackView!
     @IBOutlet weak var detailTable: UITableView!
-    
     @IBOutlet weak var segmentedC: UISegmentedControl!
     
+    // MARK: Constants
     let model: Pokemon
     
     init(model: Pokemon) {
@@ -46,9 +43,7 @@ class PokemonDetailViewController: UIViewController {
         
         initView.backgroundColor = model.pokeColor()
         self.view.backgroundColor = model.pokeColor()
-        
-        self.navigationController?.navigationBar.tintColor = .white
-        
+       
         let imageUrl = URL(string: model.sprites!.other.officialArtwork.front_default)
         pokemonImage.kf.setImage(with: imageUrl)
         pokemonImage.contentMode = .scaleAspectFit
@@ -92,19 +87,12 @@ class PokemonDetailViewController: UIViewController {
         aboutView.baseExpData.text = String(model.base_experience)
         aboutView.heightData.text = String(model.height)
         aboutView.weightData.text = String(model.weight)
-       // if model.abilities.count == 2 {
-         //   aboutView.AbilitiesData.text = "\(model.abilities[0].ability.name) , \(model.abilities[1].ability.name)"
-        //} else {
-          //  aboutView.AbilitiesData.text = "\(model.abilities[0].ability.name)"
-        //}
-        
     }
     
     @IBAction func segmentSelect(_ sender: Any) {
         if segmentedC.selectedSegmentIndex == 0 {
             aboutView.isHidden = false
             detailTable.isHidden = true
-            
             
         } else if segmentedC.selectedSegmentIndex == 1 {
             aboutView.isHidden = true
@@ -120,6 +108,8 @@ class PokemonDetailViewController: UIViewController {
         }
     }
 }
+
+// MARK: TableView datasource
 extension PokemonDetailViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
@@ -137,7 +127,8 @@ extension PokemonDetailViewController: UITableViewDataSource {
         
         let statCell = detailTable.dequeueReusableCell(withIdentifier: "sCell",
                                                        for: indexPath) as! StatsCell
-        let moveCell = UITableViewCell(style: .value1, reuseIdentifier: "mCell")
+        let moveCell = UITableViewCell(style: .value1,
+                                       reuseIdentifier: "mCell")
         
         if segmentedC.selectedSegmentIndex == 1 {
             statCell.statLabel.text = model.stats[indexPath.row].stat.name.firstUpper()

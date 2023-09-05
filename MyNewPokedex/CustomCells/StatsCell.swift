@@ -8,7 +8,7 @@
 import UIKit
 
 class StatsCell: UITableViewCell {
-
+    // MARK: outlets
     @IBOutlet weak var statLabel: UILabel!
     @IBOutlet weak var numberLabel: UILabel!
     @IBOutlet weak var progressView: UIProgressView!
@@ -16,7 +16,6 @@ class StatsCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         statLabel.textColor = .systemGray2
-        
     }
 
     override func setSelected(_ selected: Bool,
@@ -29,7 +28,7 @@ class StatsCell: UITableViewCell {
 }
 
 extension StatsCell {
-    
+    // MARK: change name stats
     func reduceText(){
         if statLabel.text == "Special-attack"{
             statLabel.text = "Sp. Atk"
@@ -38,7 +37,7 @@ extension StatsCell {
             statLabel.text = "Sp. Def"
         }
     }
-    
+    // MARK: Color of progress
     func statProgress(number: Int) {
         progressView.progress = Float(number)/100
         if number <= 25 {
