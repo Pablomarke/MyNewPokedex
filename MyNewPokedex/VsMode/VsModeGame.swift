@@ -22,8 +22,8 @@ class Player {
 }
 
 class VsModeGame {
-    var player1: Player
-    var player2: Player
+    let player1: Player
+    let player2: Player
     
     init(player1: Player, player2: Player) {
         self.player1 = player1
@@ -31,7 +31,7 @@ class VsModeGame {
     }
     
     func atack(p1: Player, p2: Player) -> Int {
-    
+        
         let def = Float(p2.def) * 0.6
         let damage = p1.atk - Int(def)
         

@@ -28,7 +28,7 @@ class PokemonDetailViewController: UIViewController {
     
     @IBOutlet weak var segmentedC: UISegmentedControl!
     
-    var model: Pokemon
+    let model: Pokemon
     
     init(model: Pokemon) {
         self.model = model

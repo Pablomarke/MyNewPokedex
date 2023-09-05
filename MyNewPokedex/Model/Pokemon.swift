@@ -10,16 +10,16 @@ import UIKit
 
 // MARK: Pokemon Base
 struct Pokemon: Codable {
-    var base_experience: Int
-    var height: Int
-    var weight: Int
-    var id: Int
-    var name: String
-    var types: [PokeType]?
-    var sprites: Sprites?
-    var stats: [Stats]
-    var abilities: [SingleAbility]
-    var moves: [SelfMove]
+    let base_experience: Int
+    let height: Int
+    let weight: Int
+    let id: Int
+    let name: String
+    let types: [PokeType]?
+    let sprites: Sprites?
+    let stats: [Stats]
+    let abilities: [SingleAbility]
+    let moves: [SelfMove]
     
     enum CodingKeys: CodingKey {
         case base_experience
@@ -36,8 +36,8 @@ struct Pokemon: Codable {
 }
 
 struct PokeType: Codable {
-    var slot: Int
-    var type: PType?
+    let slot: Int
+    let type: PType?
     
     enum CodingKeys: CodingKey {
         case slot
@@ -46,8 +46,8 @@ struct PokeType: Codable {
 }
 
 struct PType: Codable {
-    var name: String
-    var url: String
+    let name: String
+    let url: String
     
     enum CodingKeys: CodingKey {
         case name
@@ -79,9 +79,9 @@ struct Stat: Codable {
 
 // MARK: Images
 struct Sprites: Codable {
-    var front_default: String
-    var back_default: String
-    var other: Other
+    let front_default: String
+    let back_default: String
+    let other: Other
     
     enum CodingKeys: CodingKey {
         case front_default
@@ -91,7 +91,7 @@ struct Sprites: Codable {
 }
 
 struct Other : Codable {
-    var officialArtwork: OfficialArtwork
+    let officialArtwork: OfficialArtwork
     
     enum CodingKeys: String, CodingKey {
         case officialArtwork = "official-artwork"
@@ -99,8 +99,8 @@ struct Other : Codable {
 }
 
 struct OfficialArtwork: Codable {
-    var front_default: String
-    var front_shiny: String
+    let front_default: String
+    let front_shiny: String
     
     enum CodingKeys: CodingKey {
         case front_default
@@ -109,9 +109,9 @@ struct OfficialArtwork: Codable {
 }
 
 struct SingleAbility: Codable {
-    var ability: Ability
-    var is_hidden: Bool
-    var slot: Int
+    let ability: Ability
+    let is_hidden: Bool
+    let slot: Int
     
     enum CodingKeys: CodingKey {
         case ability
@@ -121,8 +121,8 @@ struct SingleAbility: Codable {
 }
 
 struct Ability: Codable {
-    var name: String
-    var url: String
+    let name: String
+    let url: String
     
     enum CodingKeys: CodingKey {
         case name
@@ -132,7 +132,7 @@ struct Ability: Codable {
 
 
 struct Moves: Codable {
-    var move: SelfMove
+    let move: SelfMove
     
     enum CodingKeys: CodingKey {
         case move
@@ -140,16 +140,16 @@ struct Moves: Codable {
 }
 
 struct SelfMove: Codable {
-    var move: Move
-    //TO DO: var version_group_details
-   
+    let move: Move
+    //TODO: var version_group_details
+    
     enum CodingKeys: CodingKey {
         case move
     }
 }
 struct Move: Codable {
-    var name: String
-    var url: String
+    let name: String
+    let url: String
     
     enum CodingKeys: CodingKey {
         case name
@@ -167,21 +167,21 @@ extension Pokemon {
         } else if self.types?[0].type?.name == "grass" {
             return .systemMint
         } else if self.types?[0].type?.name == "fire" {
-           return .systemRed
+            return .systemRed
         } else if self.types?[0].type?.name == "ground" {
             return .systemBrown
         } else if self.types?[0].type?.name == "normal" {
             return .systemGray3
         } else if self.types?[0].type?.name == "electric" {
-           return .systemYellow
+            return .systemYellow
         } else if self.types?[0].type?.name == "bug" {
-           return .systemTeal
+            return .systemTeal
         } else if self.types?[0].type?.name == "poison" {
-           return .systemGreen
+            return .systemGreen
         } else if self.types?[0].type?.name == "fairy" {
-           return .systemPink
+            return .systemPink
         } else {
-           return .black
+            return .black
         }
     }
 }

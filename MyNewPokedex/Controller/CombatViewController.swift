@@ -32,9 +32,9 @@ class CombatViewController: UIViewController {
     @IBOutlet weak var viewLabel: UILabel!
     
     
-    var p1: Player
-    var p2: Player
-    var combat: VsModeGame
+    let p1: Player
+    let p2: Player
+    let combat: VsModeGame
     
     init(p1: Player, p2: Player, combat: VsModeGame ) {
         self.p1 = p1
@@ -53,10 +53,7 @@ class CombatViewController: UIViewController {
         simulatorLabel.textColor = .systemYellow
         simulatorLabel.layer.cornerRadius = 24
        
-        self.navigationController?.navigationBar.tintColor = .white
-        let backButton = UIBarButtonItem()
-        backButton.title = ""
-        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
+        navigationStyle(nav: self.navigationController!)
         player2Dataview.syncViewPlayer(player: p2)
         p2Image.kf.setImage(with: URL(string: p2.data.sprites!.front_default))
         player1DataView.syncViewPlayer(player: p1)
@@ -121,6 +118,7 @@ extension CombatViewController: UITableViewDelegate, UITableViewDataSource {
             }
         return cell
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         p2.hp = self.combat.atack(p1: p1, p2: p2)
         player2Dataview.syncViewPlayer(player: p2)
