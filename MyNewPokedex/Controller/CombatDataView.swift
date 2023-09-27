@@ -10,18 +10,17 @@ import UIKit
 
 class CombatDataView: UIView {
     
+    // MARK: Outlets
     @IBOutlet weak var combatContentView: UIView!
-    
     @IBOutlet weak var nameLabel: UILabel!
-    
     @IBOutlet weak var hpView: UIView!
     @IBOutlet weak var progressHp: UIProgressView!
     @IBOutlet weak var hpLabel: UILabel!
     @IBOutlet weak var hpNumberLabel: UILabel!
    
+    // MARK: Init
     override init(frame: CGRect) {
         super.init(frame: frame)
-    
         commonInit()
     }
     
@@ -30,6 +29,7 @@ class CombatDataView: UIView {
         commonInit()
     }
 
+    // MARK: config
     private func commonInit() {
         Bundle.main.loadNibNamed("CombatDataView",
                                  owner: self,
@@ -38,25 +38,24 @@ class CombatDataView: UIView {
         combatContentView.frame = self.bounds
         combatContentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         
-       
         hpLabel.text = "HP"
         hpLabel.textColor = .yellow
         combatContentView.layer.cornerRadius = 16
-        
         hpView.layer.cornerRadius = 4
         hpView.backgroundColor = .black
         
     }
 }
 
+// MARK: Extension for sync player
 extension CombatDataView {
     func syncViewPlayer(player: Player) {
         nameLabel.text = player.data.name.firstUpper()
         hpNumberLabel.text = "HP \(player.hp) / \(player.data.stats[0].base_stat)"
         progressHp.progress = Float(player.hp)/Float(player.data.stats[0].base_stat)
         colorProgress()
-       
     }
+    
     func colorProgress() {
         if progressHp.progress == 1 {
             progressHp.progressTintColor = .systemGreen
@@ -68,7 +67,6 @@ extension CombatDataView {
             progressHp.progressTintColor = .systemOrange
         } else if progressHp.progress <= 0 {
             hpNumberLabel.text = "K.O."
-            
         }
     }
 }

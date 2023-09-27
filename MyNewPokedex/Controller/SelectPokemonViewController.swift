@@ -8,6 +8,7 @@
 import UIKit
 
 class SelectPokemonViewController: UIViewController {
+    
     // MARK: Outlets
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var p1LabelView: UIView!
@@ -20,6 +21,7 @@ class SelectPokemonViewController: UIViewController {
     @IBOutlet weak var p2Collection: UICollectionView!
     @IBOutlet weak var p2SelectedImage: UIImageView!
     @IBOutlet weak var actionButton: UIButton!
+    
     
     let poke = PokemonApi()
     var player1Poke: Int = 1
@@ -56,6 +58,7 @@ class SelectPokemonViewController: UIViewController {
                               forCellWithReuseIdentifier: "pokeCell")
         p2Collection.delegate = self
     }
+    
     // MARK: Buttons
     @IBAction func testaction(_ sender: Any) {
         let poke = PokemonApi.shared
@@ -80,13 +83,17 @@ class SelectPokemonViewController: UIViewController {
 }
 // MARK: Collection Datasource
 extension SelectPokemonViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView,
-                        numberOfItemsInSection section: Int) -> Int {
+    func collectionView(
+        _ collectionView: UICollectionView,
+                        numberOfItemsInSection section: Int
+    ) -> Int {
         return 50
     }
     
-    func collectionView(_ collectionView: UICollectionView,
-                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(
+        _ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
         let cell = p1Collection.dequeueReusableCell(withReuseIdentifier: "pokeCell",
                                                     for: indexPath) as! PokemonCell
         if collectionView == p1Collection {
@@ -115,30 +122,37 @@ extension SelectPokemonViewController: UICollectionViewDataSource {
 }
 // MARK: Collection delegate
 extension SelectPokemonViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)  {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        didSelectItemAt indexPath: IndexPath
+    ) {
+       
         if collectionView == p1Collection {
             player1Poke = indexPath.row + 1
             p1Collection.isHidden = true
             p1SelectedImage.isHidden = false
             let cell2 =  p1Collection.cellForItem(at: indexPath) as! PokemonCell
-           p1LabelView.backgroundColor = cell2.backView.backgroundColor
-           p1Label.text = "Player 1 select \(cell2.pokeName.text!)"
-          p1SelectedImage.image = cell2.pokeImage.image
+            p1LabelView.backgroundColor = cell2.backView.backgroundColor
+            p1Label.text = "Player 1 select \(cell2.pokeName.text!)"
+            p1SelectedImage.image = cell2.pokeImage.image
+            
         } else if collectionView == p2Collection {
             player2Poke = indexPath.row + 1
             p2Collection.isHidden = true
             p2SelectedImage.isHidden = false
-           let cell3 =  p2Collection.cellForItem(at: indexPath) as! PokemonCell
-           p2LabelView.backgroundColor = cell3.backView.backgroundColor
-           p2Label.text = "Player 2 select \(cell3.pokeName.text!)"
-           p2SelectedImage.image = cell3.pokeImage.image
+            let cell3 =  p2Collection.cellForItem(at: indexPath) as! PokemonCell
+            p2LabelView.backgroundColor = cell3.backView.backgroundColor
+            p2Label.text = "Player 2 select \(cell3.pokeName.text!)"
+            p2SelectedImage.image = cell3.pokeImage.image
+            
         }
         /// Show button
         if p2Label.text != "Player 2 pokemon" && p1Label.text != "Player 1 pokemon" {
             titleLabel.text = "To fight!"
             actionButton.isHidden = false
             actionButton.tintColor = .systemYellow
-            actionButton.setTitle("To fight!!", for: .normal)
+            actionButton.setTitle("To fight!!", 
+                                  for: .normal)
         }
     }
 }

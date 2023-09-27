@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -15,7 +16,7 @@
                 <outlet property="p1ViewImage" destination="uMb-G5-CSR" id="l9a-7s-irW"/>
                 <outlet property="p1atk" destination="Zsf-tQ-XH6" id="2Wc-OE-0bT"/>
                 <outlet property="p2Image" destination="HcT-av-7bU" id="fs2-Qs-lND"/>
-                <outlet property="p2ViewIamge" destination="ZIl-L5-EdR" id="SUz-vM-OIj"/>
+                <outlet property="p2ViewImage" destination="ZIl-L5-EdR" id="fBK-Re-4Io"/>
                 <outlet property="p2atk" destination="ers-Ik-VrH" id="yuA-bg-3Uo"/>
                 <outlet property="player1DataView" destination="Bhg-Zl-tgW" id="NKu-nf-Wit"/>
                 <outlet property="player2Dataview" destination="fsa-wL-8ln" id="3C1-Nm-Smg"/>
@@ -246,7 +247,7 @@
     <resources>
         <image name="backcolor" width="240" height="160"/>
         <systemColor name="labelColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

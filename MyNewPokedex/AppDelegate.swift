@@ -13,15 +13,14 @@ class AppDelegate: UIResponder,
     
     var window: UIWindow?
     
-    func application(_ application: UIApplication,
-                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
+    func application(
+        _ application: UIApplication,
+        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
+    ) -> Bool {
         let home = HomeViewController()
         let navigation = UINavigationController(rootViewController: home)
         self.window?.rootViewController = navigation
-        
         return true
-        
     }
 }
         

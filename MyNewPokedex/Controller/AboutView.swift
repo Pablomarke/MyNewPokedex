@@ -9,6 +9,7 @@ import UIKit
 
 class AboutView: UIView {
     
+    // MARK: Outlets
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var baseExpTitle: UILabel!
     @IBOutlet weak var baseExpData: UILabel!
@@ -19,7 +20,7 @@ class AboutView: UIView {
     @IBOutlet weak var AbilitiesTitle: UILabel!
     @IBOutlet weak var AbilitiesData: UILabel!
     
-    
+    // MARK: Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -30,6 +31,7 @@ class AboutView: UIView {
         commonInit()
     }
 
+    // MARK: config
     private func commonInit() {
         Bundle.main.loadNibNamed("AboutView",
                                  owner: self,

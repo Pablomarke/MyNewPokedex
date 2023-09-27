@@ -13,18 +13,17 @@ extension String {
     func firstUpper() -> String {
         return prefix(1).capitalized + dropFirst()
     }
+    
     mutating func capitalizeFirstLetter() {
         self = self.firstUpper()
     }
     
     func left(total:Int,
               cadena: String) -> String {
-    let pad = total - self.count
-    return pad < 1 ? self : "".padding(toLength: pad,
-                                       withPad: cadena,
-                                       startingAt: 0)+self
-
-
+        let pad = total - self.count
+        return pad < 1 ? self : "".padding(toLength: pad,
+                                           withPad: cadena,
+                                           startingAt: 0)+self
     }
 }
 

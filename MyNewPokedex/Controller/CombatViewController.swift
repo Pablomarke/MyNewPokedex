@@ -10,13 +10,14 @@ import Kingfisher
 
 class CombatViewController: UIViewController {
     
+    // MARK: Outlets
     @IBOutlet weak var p1atk: UIButton!
     @IBOutlet weak var p2atk: UIButton!
     
     @IBOutlet weak var player2Dataview: CombatDataView!
     @IBOutlet weak var player1DataView: CombatDataView!
     
-    @IBOutlet weak var p2ViewIamge: UIView!
+    @IBOutlet weak var p2ViewImage: UIView!
     @IBOutlet weak var p2Image: UIImageView!
     @IBOutlet weak var p1ViewImage: UIView!
     @IBOutlet weak var p1Image: UIImageView!
@@ -44,30 +45,35 @@ class CombatViewController: UIViewController {
         super.init(nibName: nil,
                    bundle: nil)
     }
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         simulatorLabel.textColor = .systemYellow
         simulatorLabel.layer.cornerRadius = 24
-       
+        
         navigationStyle(nav: self.navigationController!)
         player2Dataview.syncViewPlayer(player: p2)
         p2Image.kf.setImage(with: URL(string: p2.data.sprites!.front_default))
         player1DataView.syncViewPlayer(player: p1)
         p1Image.kf.setImage(with: URL(string: p1.data.sprites!.back_default))
-        p2ViewIamge.layer.cornerRadius = 50
+        
+        p2ViewImage.layer.cornerRadius = 50
         p1ViewImage.backgroundColor = .clear
-    
+        
         p1ViewImage.layer.cornerRadius = 50
-        p2ViewIamge.backgroundColor = .clear
+        p2ViewImage.backgroundColor = .clear
         
         secondStackView.backgroundColor = .clear
         menuStack.backgroundColor = .clear
+        
         viewLabel.text = "¿Qué quieres hacer?"
         viewLabel.numberOfLines = 3
+        
         p1atk.setTitle("Atk. normal", for: .normal)
         p1atk.tintColor = p1.data.pokeColor()
         p2atk.setTitle("Atk. normal", for: .normal)
@@ -83,13 +89,14 @@ class CombatViewController: UIViewController {
         tableAtacks.dataSource = self
         tableAtacks.delegate = self
         tableAtacks.backgroundColor = UIColor.clear
-                tableAtacks.backgroundView = UIView.init(frame: CGRect.zero)
+        tableAtacks.backgroundView = UIView.init(frame: CGRect.zero)
     }
-
-
+    
+    // MARK: Buttons atack
     @IBAction func p1atkAct(_ sender: Any) {
         p2.hp = self.combat.atack(p1: p1, p2: p2)
         player2Dataview.syncViewPlayer(player: p2)
+        
         if p2.hp <= 0 {
             p2Image.image = UIImage(named: "dead")
         }
@@ -98,38 +105,53 @@ class CombatViewController: UIViewController {
     @IBAction func p2atkAct(_ sender: Any) {
         p1.hp = self.combat.atack(p1: p2, p2: p1)
         player1DataView.syncViewPlayer(player: p1)
+       
         if p1.hp <= 0{
             p1Image.image = UIImage(named: "dead")
         }
     }
 }
-
-extension CombatViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+// MARK: DataSource
+extension CombatViewController: UITableViewDataSource {
+    
+    func tableView(
+        _ tableView: UITableView,
+        numberOfRowsInSection section: Int
+    ) -> Int {
         return p1.data.abilities.count + p1.data.moves.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(
+        _ tableView: UITableView,
+        cellForRowAt indexPath: IndexPath
+    ) -> UITableViewCell {
+        
         let cell = UITableViewCell(style: .value1,
                                    reuseIdentifier: "ABICell")
+        
         cell.backgroundColor = p1.data.pokeColor()
-            if indexPath.row <= (p1.data.abilities.count - 1) {
-                cell.textLabel?.text = p1.data.abilities[indexPath.row].ability.name
-            } else if indexPath.row >= (p1.data.abilities.count - 1) && indexPath.row <= (p1.data.abilities.count + p1.data.moves.count) - 3 {
-                cell.textLabel?.text = p1.data.moves[indexPath.row].move.name
-            }
+        if indexPath.row <= (p1.data.abilities.count - 1) {
+            cell.textLabel?.text = p1.data.abilities[indexPath.row].ability.name
+        } else if indexPath.row >= (p1.data.abilities.count - 1) && indexPath.row <= (p1.data.abilities.count + p1.data.moves.count) - 3 {
+            cell.textLabel?.text = p1.data.moves[indexPath.row].move.name
+        }
         return cell
     }
-    
-    func tableView(_ tableView: UITableView,
-                   didSelectRowAt indexPath: IndexPath) {
+}
+
+// MARK: Delegate abilities
+extension CombatViewController: UITableViewDelegate {
+    func tableView(
+        _ tableView: UITableView,
+        didSelectRowAt indexPath: IndexPath
+    ) {
         p2.hp = self.combat.atack(p1: p1, p2: p2)
         player2Dataview.syncViewPlayer(player: p2)
         if p2.hp <= 0 {
             p2Image.image = UIImage(named: "dead")
         }
     }
-    
 }
+
 
 

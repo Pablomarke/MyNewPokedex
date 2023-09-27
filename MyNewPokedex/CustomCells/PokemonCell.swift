@@ -23,22 +23,22 @@ class PokemonCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        pokeName.textColor = .white
-        pokeName.font = .boldSystemFont(ofSize: 16)
+        pokeName.myLetter()
+
         backView.layer.cornerRadius = 22
-        filterView.backgroundColor = UIColor(white: 1, alpha: 0.25)
         filterView.layer.cornerRadius = 22
-        typeView.layer.cornerRadius = 11
-        typeView.backgroundColor = UIColor(white: 1, alpha: 0.33)
-        typeLabel.textColor = .white
-        type2View.layer.cornerRadius = 11
-        type2View.backgroundColor = UIColor(white: 1, alpha: 0.33)
-        type2Label.textColor = .white
+        filterView.backgroundColor = BCOLOR
+        typeView.myCorner()
+        typeLabel.textColor = LETTERCOLOR
+        type2View.myCorner()
+        type2Label.textColor = LETTERCOLOR
     }
     // MARK: cofigure the cell
+    
     func configure(whit pokemon: Pokemon){
         pokeName.text = pokemon.name.firstUpper()
         backView.backgroundColor = pokemon.pokeColor()
+        
         let myurl = URL(string: pokemon.sprites!.other.officialArtwork.front_default)
         pokeImage.kf.setImage(with: myurl)
         typeLabel.text = pokemon.types?[0].type?.name
