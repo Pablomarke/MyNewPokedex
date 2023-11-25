@@ -130,6 +130,84 @@
 			path = VsMode;
 			sourceTree = "<group>";
 		};
+		39701F252B12652A00CBC981 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				39701F2A2B1265B300CBC981 /* CombatView */,
+				39701F292B12659700CBC981 /* SelectPokemonView */,
+				39701F282B12657800CBC981 /* PokemonDetail */,
+				39701F272B12655D00CBC981 /* PokemonListView */,
+				398906F32A93BBE600BF2288 /* LaunchScreen.storyboard */,
+				39701F262B12653F00CBC981 /* HomeView */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		39701F262B12653F00CBC981 /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				39BE14C82AA06EF100B6C21E /* HomeViewController.swift */,
+				39BE14C92AA06EF100B6C21E /* HomeViewController.xib */,
+			);
+			path = HomeView;
+			sourceTree = "<group>";
+		};
+		39701F272B12655D00CBC981 /* PokemonListView */ = {
+			isa = PBXGroup;
+			children = (
+				39B4A06D2A93BC41009846D4 /* PokemonListViewController.swift */,
+				39B4A06E2A93BC41009846D4 /* PokemonListViewController.xib */,
+			);
+			path = PokemonListView;
+			sourceTree = "<group>";
+		};
+		39701F282B12657800CBC981 /* PokemonDetail */ = {
+			isa = PBXGroup;
+			children = (
+				39701F2C2B1265FA00CBC981 /* AboutView */,
+				3985E4742A95E9D100CDEB44 /* PokemonDetailViewController.swift */,
+				3985E4752A95E9D100CDEB44 /* PokemonDetailViewController.xib */,
+			);
+			path = PokemonDetail;
+			sourceTree = "<group>";
+		};
+		39701F292B12659700CBC981 /* SelectPokemonView */ = {
+			isa = PBXGroup;
+			children = (
+				397704C82AA308DD000E57B2 /* SelectPokemonViewController.swift */,
+				397704C92AA308DD000E57B2 /* SelectPokemonViewController.xib */,
+			);
+			path = SelectPokemonView;
+			sourceTree = "<group>";
+		};
+		39701F2A2B1265B300CBC981 /* CombatView */ = {
+			isa = PBXGroup;
+			children = (
+				39701F2B2B1265DF00CBC981 /* CombatDataView */,
+				3932C0902A9B73F5006369C6 /* CombatViewController.swift */,
+				3932C0912A9B73F5006369C6 /* CombatViewController.xib */,
+			);
+			path = CombatView;
+			sourceTree = "<group>";
+		};
+		39701F2B2B1265DF00CBC981 /* CombatDataView */ = {
+			isa = PBXGroup;
+			children = (
+				39CA25492A9C82EA001B4A66 /* CombatDataView.swift */,
+				39CA25472A9C7EDF001B4A66 /* CombatDataView.xib */,
+			);
+			path = CombatDataView;
+			sourceTree = "<group>";
+		};
+		39701F2C2B1265FA00CBC981 /* AboutView */ = {
+			isa = PBXGroup;
+			children = (
+				391518282A98C2A300526905 /* AboutView.swift */,
+				391518242A98C1F100526905 /* AboutView.xib */,
+			);
+			path = AboutView;
+			sourceTree = "<group>";
+		};
 		398906DC2A93BBE300BF2288 = {
 			isa = PBXGroup;
 			children = (
@@ -152,13 +230,13 @@
 		398906E72A93BBE300BF2288 /* MyNewPokedex */ = {
 			isa = PBXGroup;
 			children = (
+				39701F252B12652A00CBC981 /* UI */,
 				398906E82A93BBE300BF2288 /* AppDelegate.swift */,
 				39BC6BE42AC356E100AD6635 /* Constants */,
 				39B4A0742A93BE0B009846D4 /* Networking */,
 				39BC6BE12AC33FD700AD6635 /* Extensions */,
 				3932C0882A9B6BFB006369C6 /* VsMode */,
 				39B4A07C2A93C1C5009846D4 /* CustomCells */,
-				39B4A0732A93BDD6009846D4 /* Controller */,
 				39B4A0722A93BDCD009846D4 /* View */,
 				39B4A0712A93BDC6009846D4 /* Model */,
 				398906F12A93BBE600BF2288 /* Assets.xcassets */,
@@ -186,31 +264,9 @@
 		39B4A0722A93BDCD009846D4 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				39BE14C92AA06EF100B6C21E /* HomeViewController.xib */,
-				398906F32A93BBE600BF2288 /* LaunchScreen.storyboard */,
 				398906EE2A93BBE300BF2288 /* Main.storyboard */,
-				39B4A06E2A93BC41009846D4 /* PokemonListViewController.xib */,
-				3985E4752A95E9D100CDEB44 /* PokemonDetailViewController.xib */,
-				397704C92AA308DD000E57B2 /* SelectPokemonViewController.xib */,
-				3932C0912A9B73F5006369C6 /* CombatViewController.xib */,
-				391518242A98C1F100526905 /* AboutView.xib */,
-				39CA25472A9C7EDF001B4A66 /* CombatDataView.xib */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		39B4A0732A93BDD6009846D4 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				39BE14C82AA06EF100B6C21E /* HomeViewController.swift */,
-				39B4A06D2A93BC41009846D4 /* PokemonListViewController.swift */,
-				3985E4742A95E9D100CDEB44 /* PokemonDetailViewController.swift */,
-				3932C0902A9B73F5006369C6 /* CombatViewController.swift */,
-				397704C82AA308DD000E57B2 /* SelectPokemonViewController.swift */,
-				391518282A98C2A300526905 /* AboutView.swift */,
-				39CA25492A9C82EA001B4A66 /* CombatDataView.swift */,
-			);
-			path = Controller;
 			sourceTree = "<group>";
 		};
 		39B4A0742A93BE0B009846D4 /* Networking */ = {
