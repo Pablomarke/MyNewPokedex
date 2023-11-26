@@ -72,15 +72,11 @@ class SelectPokemonViewController: UIViewController {
                                                        combat: VsModeGame(player1: p1, player2: p2))
                 
                 self.navigationController?.show(pokemonList, sender: nil)
-            } failure: { error in
-                print(error!)
             }
-        } failure: { error in
-            print(error!)
         }
     }
-
 }
+
 // MARK: Collection Datasource
 extension SelectPokemonViewController: UICollectionViewDataSource {
     func collectionView(
@@ -102,8 +98,6 @@ extension SelectPokemonViewController: UICollectionViewDataSource {
                 /// get pokemon by id in indexpath.row
                 poke.getPokemonId(id: indexPath.row + 1) { pokemon in
                     cell.configure(whit: pokemon)
-                } failure: { error in
-                    print(error ?? "Error")
                 }
                 return cell
         } else if collectionView == p2Collection {
@@ -112,9 +106,7 @@ extension SelectPokemonViewController: UICollectionViewDataSource {
                 /// get pokemon by id in indexpath.row
                 poke.getPokemonId(id: indexPath.row + 1) { pokemon in
                     cell.configure(whit: pokemon)
-                } failure: { error in
-                    print(error ?? "Error")
-                }
+                } 
                 return cell
         }
         return cell

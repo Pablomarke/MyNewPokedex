@@ -57,9 +57,7 @@ extension PokemonListViewController: UICollectionViewDataSource {
         /// get pokemon by id in indexpath.row
         poke.getPokemonId(id: indexPath.row + 1) { pokemon in
             cell.configure(whit: pokemon)
-        } failure: { error in
-            print(error ?? "Error")
-        }
+        } 
         return cell
     }
 }
@@ -72,8 +70,6 @@ extension PokemonListViewController: UICollectionViewDelegate {
             let detail = PokemonDetailViewController(model: pokemon)
             self.navigationController?.showDetailViewController(detail,
                                                                 sender: nil)
-        } failure: { error in
-            self.titleLabel.text = "Error"
         }
     }
 }
