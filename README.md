@@ -18,10 +18,13 @@ Implementación de una view para seleccionar dos pokemons y hacer un simulacro d
 
 <img src="https://github.com/Pablomarke/GitImages/blob/main/appPokemonListacombat.png" width="150" /><img src="https://github.com/Pablomarke/GitImages/blob/main/appPokemonLSelect.png" width="150" /><img src="https://github.com/Pablomarke/GitImages/blob/main/appPokemonCombat.png" width="150" />
 
+#### Version 1.15 (en proceso)
+- Refactorización del código.
+- Eliminación de dependencias
+
 ***
 #### Version 1.2 (no implementada)
 - Aplicar scroll infinito para visualizar el 100% de pokemons de la api. 
-- Añadir paginado.
 
 
 # Información extra
