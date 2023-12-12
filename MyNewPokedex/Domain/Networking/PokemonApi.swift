@@ -10,7 +10,6 @@ import Foundation
 class PokemonApi {
     
     // MARK: Constants
-    private let baseUrl:String = "https://pokeapi.co/api/v2/"
     static let shared = PokemonApi()
     
     enum Status {
