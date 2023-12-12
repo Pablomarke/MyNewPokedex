@@ -5,7 +5,6 @@
 //  Created by Pablo Márquez Marín on 21/8/23.
 //
 
-import Foundation
 import UIKit
 
 // MARK: Pokemon Base

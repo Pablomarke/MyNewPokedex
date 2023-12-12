@@ -5,7 +5,6 @@
 //  Created by Pablo Márquez Marín on 26/9/23.
 //
 
-import Foundation
 import UIKit
 
 let BCOLOR = UIColor(white: 1, alpha: 0.33)
