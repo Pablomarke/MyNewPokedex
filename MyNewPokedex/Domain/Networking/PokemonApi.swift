@@ -26,7 +26,6 @@ class PokemonApi {
     }
     
     // MARK: Functions
-    
     /// Pokemon by ID
     func getPokemonId(id: Int,  
                       completion: @escaping (Pokemon) -> Void){

@@ -22,7 +22,6 @@ class StatsCell: UITableViewCell {
                               animated: Bool) {
         super.setSelected(selected,
                           animated: animated)
-
     }
 }
 
