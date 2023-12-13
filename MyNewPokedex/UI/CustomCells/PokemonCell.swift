@@ -25,14 +25,22 @@ class PokemonCell: UICollectionViewCell {
         cellStyle()
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        pokeName.text = nil
+        pokeImage.image = nil
+    }
+    
     // MARK: cofigure the cell
     func configure(whit pokemon: Pokemon){
         pokeName.text = pokemon.name.firstUpper()
         backView.backgroundColor = pokemon.pokeColor()
         typeLabel.text = pokemon.types?.first?.type?.name
         
-        let myurl = URL(string: pokemon.sprites!.other.officialArtwork.front_default)
-        pokeImage.kf.setImage(with: myurl)
+        if let image = pokemon.sprites {
+            let myurl = URL(string: image.other.officialArtwork.front_default)
+            pokeImage.kf.setImage(with: myurl)
+        }
        
         if pokemon.types?.count == 2 {
             type2Label.text = pokemon.types?.first?.type?.name
@@ -42,6 +50,7 @@ class PokemonCell: UICollectionViewCell {
         }
     }
     
+    // MARK: - Cell style -
     func cellStyle () {
         backView.myCorner(corner: 22)
         filterView.myCorner(corner: 22)
