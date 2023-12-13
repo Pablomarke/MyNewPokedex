@@ -65,6 +65,7 @@ struct Stats: Codable {
         case stat
     }
 }
+
 struct Stat: Codable {
     let name: String
     let url: String
@@ -129,7 +130,6 @@ struct Ability: Codable {
     }
 }
 
-
 struct Moves: Codable {
     let move: SelfMove
     
@@ -146,6 +146,7 @@ struct SelfMove: Codable {
         case move
     }
 }
+
 struct Move: Codable {
     let name: String
     let url: String
@@ -161,26 +162,29 @@ extension Pokemon {
     
     ///color background
     func pokeColor() -> UIColor {
-        if self.types?[0].type?.name == "water" {
-            return .systemBlue
-        } else if self.types?[0].type?.name == "grass" {
-            return .systemMint
-        } else if self.types?[0].type?.name == "fire" {
-            return .systemRed
-        } else if self.types?[0].type?.name == "ground" {
-            return .systemBrown
-        } else if self.types?[0].type?.name == "normal" {
-            return .systemGray3
-        } else if self.types?[0].type?.name == "electric" {
-            return .systemYellow
-        } else if self.types?[0].type?.name == "bug" {
-            return .systemTeal
-        } else if self.types?[0].type?.name == "poison" {
-            return .systemGreen
-        } else if self.types?[0].type?.name == "fairy" {
-            return .systemPink
-        } else {
-            return .black
+        switch self.types?.first?.type?.name {
+            case "water":
+                return .systemBlue
+            case "grass":
+                return .systemMint
+            case "fire" :
+                return .systemRed
+            case "ground" :
+                return .systemBrown
+            case "normal" :
+                return .systemGray3
+            case "electric" :
+                return .systemYellow
+            case "bug" :
+                return .systemTeal
+            case "poison" :
+                return .systemGreen
+            case "fairy" :
+                return .systemPink
+            case .none:
+                return .black
+            case .some(_):
+                return .black
         }
     }
 }
