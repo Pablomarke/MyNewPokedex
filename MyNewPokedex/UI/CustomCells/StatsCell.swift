@@ -24,7 +24,6 @@ class StatsCell: UITableViewCell {
                           animated: animated)
 
     }
-    
 }
 
 extension StatsCell {
@@ -37,18 +36,19 @@ extension StatsCell {
             statLabel.text = "Sp. Def"
         }
     }
+    
     // MARK: Color of progress
     func statProgress(number: Int) {
         progressView.progress = Float(number)/100
         if number <= 25 {
             progressView.tintColor = .yellow
-        } else  if number <= 50 {
+        } else if number <= 50 {
             progressView.tintColor = .blue
-        } else  if number <= 75 {
+        } else if number <= 75 {
             progressView.tintColor = .green
-        } else  if number <= 90 {
+        } else if number <= 90 {
             progressView.tintColor = .orange
-        } else  if number <= 100 {
+        } else if number <= 100 {
             progressView.tintColor = .red
         } else {
             progressView.tintColor = .systemRed
