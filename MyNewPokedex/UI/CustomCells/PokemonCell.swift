@@ -19,34 +19,36 @@ class PokemonCell: UICollectionViewCell {
     @IBOutlet weak var type2View: UIView!
     @IBOutlet weak var type2Label: UILabel!
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         pokeName.myLetter()
-
-        backView.layer.cornerRadius = 22
-        filterView.layer.cornerRadius = 22
-        filterView.backgroundColor = BCOLOR
-        typeView.myCorner()
-        typeLabel.textColor = LETTERCOLOR
-        type2View.myCorner()
-        type2Label.textColor = LETTERCOLOR
+        cellStyle()
     }
-    // MARK: cofigure the cell
     
+    // MARK: cofigure the cell
     func configure(whit pokemon: Pokemon){
         pokeName.text = pokemon.name.firstUpper()
         backView.backgroundColor = pokemon.pokeColor()
+        typeLabel.text = pokemon.types?.first?.type?.name
         
         let myurl = URL(string: pokemon.sprites!.other.officialArtwork.front_default)
         pokeImage.kf.setImage(with: myurl)
-        typeLabel.text = pokemon.types?[0].type?.name
+       
         if pokemon.types?.count == 2 {
-        type2Label.text = pokemon.types?[1].type?.name
+            type2Label.text = pokemon.types?.first?.type?.name
         } else {
             type2Label.isHidden = true
             type2View.isHidden = true
         }
+    }
+    
+    func cellStyle () {
+        backView.myCorner(corner: 22)
+        filterView.myCorner(corner: 22)
+        typeView.myCorner()
+        type2View.myCorner()
+        filterView.backgroundColor = BCOLOR
+        typeLabel.textColor = LETTERCOLOR
+        type2Label.textColor = LETTERCOLOR
     }
 }
