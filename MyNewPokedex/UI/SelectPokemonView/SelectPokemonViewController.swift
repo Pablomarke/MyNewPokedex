@@ -33,7 +33,9 @@ class SelectPokemonViewController: UIViewController {
         titleLabel.text = "Select your pokemon!"
         titleLabel.font = .boldSystemFont(ofSize: 32)
         titleLabel.textColor = .systemYellow
-        navigationStyle(nav: navigationController!.self)
+        if let navi = navigationController {
+            navigationStyle(nav: navi)
+        }
         
         p1SelectedImage.isHidden = true
         p2SelectedImage.isHidden = true

@@ -20,7 +20,9 @@ class PokemonListViewController: UIViewController {
     // MARK: ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationStyle(nav: navigationController!.self)
+        if let navi = navigationController {
+            navigationStyle(nav: navi)
+        }
         
         ///Title
         titleLabel.text = "Pokedex"

@@ -158,8 +158,10 @@ extension PokemonDetailViewController {
     }
     
     func pokeImageShow() {
-        let imageUrl = URL(string: model.sprites!.other.officialArtwork.front_default)
-        pokemonImage.kf.setImage(with: imageUrl)
+        if let pokeImage = model.sprites {
+            let imageUrl = URL(string: pokeImage.other.officialArtwork.front_default)
+            pokemonImage.kf.setImage(with: imageUrl)
+        }
         pokemonImage.contentMode = .scaleAspectFit
     }
 }
