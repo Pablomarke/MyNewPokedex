@@ -5,10 +5,9 @@
 //  Created by Pablo Márquez Marín on 28/8/23.
 //
 
-import Foundation
 import UIKit
 
-class CombatDataView: UIView {
+final class CombatDataView: UIView {
     
     // MARK: Outlets
     @IBOutlet weak var combatContentView: UIView!

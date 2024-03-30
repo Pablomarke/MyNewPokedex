@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+final class HomeViewController: UIViewController {
 
     // MARK: Outlets
     @IBOutlet weak var homeImage: UIImageView!
@@ -18,16 +18,7 @@ class HomeViewController: UIViewController {
     // MARK: ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        buttonOne.tintColor = .systemBlue
-        buttonOne.setTitle("Pokemons", 
-                           for: .normal)
-        
-        buttonTwo.tintColor = .systemYellow
-        buttonTwo.setTitle("Combat simulator", 
-                           for: .normal)
-        
-        homeImage.image = UIImage(named: "Poke")
+        configView()
     }
     
     // MARK: Buttons
@@ -41,5 +32,17 @@ class HomeViewController: UIViewController {
         let select = SelectPokemonViewController()
         self.navigationController?.show(select, 
                                         sender: nil)
+    }
+}
+
+private extension HomeViewController {
+    func configView() {
+        buttonOne.tintColor = .systemBlue
+        buttonOne.setTitle("Pokemons",
+                           for: .normal)
+        buttonTwo.tintColor = .systemYellow
+        buttonTwo.setTitle("Combat simulator",
+                           for: .normal)
+        homeImage.image = UIImage(named: "Poke")
     }
 }

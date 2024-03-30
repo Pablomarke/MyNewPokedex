@@ -8,37 +8,35 @@
 import UIKit
 import Kingfisher
 
-class CombatViewController: UIViewController {
+final class CombatViewController: UIViewController {
     
     // MARK: Outlets
     @IBOutlet weak var p1atk: UIButton!
     @IBOutlet weak var p2atk: UIButton!
-    
     @IBOutlet weak var player2Dataview: CombatDataView!
     @IBOutlet weak var player1DataView: CombatDataView!
-    
     @IBOutlet weak var p2ViewImage: UIView!
     @IBOutlet weak var p2Image: UIImageView!
     @IBOutlet weak var p1ViewImage: UIView!
     @IBOutlet weak var p1Image: UIImageView!
     @IBOutlet weak var menuStack: UIStackView!
-    
     @IBOutlet weak var secondStackView: UIStackView!
     @IBOutlet weak var simulatorLabel: UILabel!
     @IBOutlet weak var tableAtacks: UITableView!
-    
     @IBOutlet weak var view1: UIView!
     @IBOutlet weak var view2: UIView!
     @IBOutlet weak var view3: UIView!
     @IBOutlet weak var viewLabel: UILabel!
     
-    // MARK: - Propiedades -
+    // MARK: - Properties -
     let p1: Player
     let p2: Player
     let combat: VsModeGame
     
     // MARK: - Init -
-    init(p1: Player, p2: Player, combat: VsModeGame ) {
+    init(p1: Player, 
+         p2: Player,
+         combat: VsModeGame) {
         self.p1 = p1
         self.p2 = p2
         self.combat = combat
@@ -52,7 +50,7 @@ class CombatViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Ciclo de vida -
+    // MARK: - lifecycke -
     override func viewDidLoad() {
         super.viewDidLoad()
         syncPokemonStyleWithView()
@@ -61,7 +59,7 @@ class CombatViewController: UIViewController {
     }
     
     // MARK: - Funciones -
-    func syncPokemonStyleWithView(){
+    func syncPokemonStyleWithView() {
         p1atk.tintColor = p1.data.pokeColor()
         p2atk.tintColor = p2.data.pokeColor()
         player2Dataview.syncViewPlayer(player: p2)
@@ -76,7 +74,7 @@ class CombatViewController: UIViewController {
         }
     }
     
-    func createViewStyle(){
+    func createViewStyle() {
         if let navi = self.navigationController{
             navigationStyle(nav: navi)
         }
@@ -103,7 +101,7 @@ class CombatViewController: UIViewController {
         view3.layer.cornerRadius = 12
     }
     
-    func createTableAtacks(){
+    func createTableAtacks() {
         tableAtacks.dataSource = self
         tableAtacks.delegate = self
         tableAtacks.backgroundColor = UIColor.clear
@@ -111,14 +109,16 @@ class CombatViewController: UIViewController {
     }
     
     func player1Atack(){
-        p2.hp = self.combat.atack(p1: p1, p2: p2)
+        p2.hp = self.combat.atack(p1: p1, 
+                                  p2: p2)
         player2Dataview.syncViewPlayer(player: p2)
         pokemonIsDead(player: p2,
                       image: p2Image)
     }
     
     func player2Atack(){
-        p1.hp = self.combat.atack(p1: p2, p2: p1)
+        p1.hp = self.combat.atack(p1: p2, 
+                                  p2: p1)
         player1DataView.syncViewPlayer(player: p1)
         pokemonIsDead(player: p1, 
                       image: p1Image)
@@ -126,9 +126,8 @@ class CombatViewController: UIViewController {
     
     func pokemonIsDead(player: Player, 
                        image: UIImageView){
-        if player.hp <= 0{
+        if player.hp <= 0 {
             image.image = UIImage(named: "dead")
-            
         }
     }
     
@@ -143,8 +142,8 @@ class CombatViewController: UIViewController {
 }
 
 // MARK: DataSource
-extension CombatViewController: UITableViewDataSource {
-    
+extension CombatViewController: UITableViewDataSource,
+                                UITableViewDelegate {
     func tableView( _ tableView: UITableView,
                     numberOfRowsInSection section: Int) -> Int {
         return p1.data.abilities.count + p1.data.moves.count
@@ -152,7 +151,6 @@ extension CombatViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = UITableViewCell(style: .value1,
                                    reuseIdentifier: "ABICell")
         
@@ -165,20 +163,13 @@ extension CombatViewController: UITableViewDataSource {
         }
         return cell
     }
-}
-
-// MARK: Delegate abilities
-extension CombatViewController: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView,
                    didSelectRowAt indexPath: IndexPath) {
-        
-        p2.hp = self.combat.atack(p1: p1, p2: p2)
+        p2.hp = self.combat.atack(p1: p1, 
+                                  p2: p2)
         player2Dataview.syncViewPlayer(player: p2)
         pokemonIsDead(player: p2,
                       image: p2Image)
-        
     }
 }
-
-
-

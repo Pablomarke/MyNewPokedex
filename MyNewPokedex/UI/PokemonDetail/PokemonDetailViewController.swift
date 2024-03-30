@@ -8,8 +8,7 @@
 import UIKit
 import Kingfisher
 
-class PokemonDetailViewController: UIViewController {
-    
+final class PokemonDetailViewController: UIViewController {
     // MARK: Outlets
     @IBOutlet weak var initView: UIView!
     @IBOutlet weak var pokemonImage: UIImageView!
@@ -25,7 +24,7 @@ class PokemonDetailViewController: UIViewController {
     @IBOutlet weak var detailTable: UITableView!
     @IBOutlet weak var segmentedC: UISegmentedControl!
     
-    // MARK: Constants
+    // MARK: Properties
     let model: Pokemon
     
     init(model: Pokemon) {
@@ -39,49 +38,12 @@ class PokemonDetailViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: ViewDidLoad
+    // MARK: - Lifecycle -
     override func viewDidLoad() {
         super.viewDidLoad()
-        initView.backgroundColor = model.pokeColor()
-        self.view.backgroundColor = model.pokeColor()
-        showTypes()
-        pokeImageShow()
-
-        type1View.myCorner()
-        type2View.myCorner()
-        type2Label.textColor = LETTERCOLOR
-        type1Label.textColor = LETTERCOLOR
-        pokeName.textColor = LETTERCOLOR
-        pokeName.textColor = LETTERCOLOR
-        pokeNumber.textColor = LETTERCOLOR
-        
-        
-        pokeName.text = model.name.firstUpper()
-        let numId = String(model.id).left(total: 3,
-                                          cadena: "0")
-        pokeNumber.text = "#\(numId)"
-        bottomView.layer.cornerRadius = 40
-        
-        /// Segmented
-        segmentedC.setTitle("About", 
-                            forSegmentAt: 0)
-        segmentedC.setTitle("Base Stats", 
-                            forSegmentAt: 1)
-        segmentedC.setTitle("Moves", 
-                            forSegmentAt: 2)
-        segmentedC.selectedSegmentTintColor = model.pokeColor()
-        
-        /// Table
-        detailTable.dataSource = self
-        detailTable.register(UINib(nibName: "StatsCell",
-                                   bundle: nil),
-                             forCellReuseIdentifier: "sCell")
-        
-        aboutView.baseExpData.text = String(model.base_experience)
-        aboutView.heightData.text = String(model.height)
-        aboutView.weightData.text = String(model.weight)
-        //TODO
-        aboutView.AbilitiesData.text = String(model.abilities.count)
+        configView()
+        configTableView()
+        configSegmentedView()
     }
     
     @IBAction func segmentSelect(_ sender: Any) {
@@ -105,12 +67,72 @@ class PokemonDetailViewController: UIViewController {
     }
 }
 
+extension PokemonDetailViewController {
+    func configView() {
+        initView.backgroundColor = model.pokeColor()
+        self.view.backgroundColor = model.pokeColor()
+        showTypes()
+        pokeImageShow()
+        type1View.myCorner()
+        type2View.myCorner()
+        type2Label.textColor = LETTERCOLOR
+        type1Label.textColor = LETTERCOLOR
+        pokeName.textColor = LETTERCOLOR
+        pokeName.textColor = LETTERCOLOR
+        pokeNumber.textColor = LETTERCOLOR
+        pokeName.text = model.name.firstUpper()
+        let numId = String(model.id).left(total: 3,
+                                          cadena: "0")
+        pokeNumber.text = "#\(numId)"
+        bottomView.layer.cornerRadius = 40
+    }
+    
+    func configSegmentedView() {
+        segmentedC.setTitle("About",
+                            forSegmentAt: 0)
+        segmentedC.setTitle("Base Stats",
+                            forSegmentAt: 1)
+        segmentedC.setTitle("Moves",
+                            forSegmentAt: 2)
+        segmentedC.selectedSegmentTintColor = model.pokeColor()
+    }
+
+    func configTableView() {
+        detailTable.dataSource = self
+        detailTable.register(UINib(nibName: "StatsCell",
+                                   bundle: nil),
+                             forCellReuseIdentifier: "sCell")
+        
+        aboutView.baseExpData.text = String(model.base_experience)
+        aboutView.heightData.text = String(model.height)
+        aboutView.weightData.text = String(model.weight)
+        //TODO
+        aboutView.AbilitiesData.text = String(model.abilities.count)
+    }
+    
+    func showTypes() {
+        type1Label.text = model.types?[0].type?.name
+        if model.types?.count == 2 {
+            type2Label.text = model.types?[1].type?.name
+        } else {
+            type2Label.isHidden = true
+            type2View.isHidden = true
+        }
+    }
+    
+    func pokeImageShow() {
+        if let pokeImage = model.sprites {
+            let imageUrl = URL(string: pokeImage.other.officialArtwork.front_default)
+            pokemonImage.kf.setImage(with: imageUrl)
+        }
+        pokemonImage.contentMode = .scaleAspectFit
+    }
+}
+
 // MARK: TableView datasource
 extension PokemonDetailViewController: UITableViewDataSource {
-    func tableView(
-        _ tableView: UITableView,
-        numberOfRowsInSection section: Int
-    ) -> Int {
+    func tableView(_ tableView: UITableView,
+                   numberOfRowsInSection section: Int) -> Int {
         if segmentedC.selectedSegmentIndex == 1 {
             return model.stats.count
         } else if segmentedC.selectedSegmentIndex == 2 {
@@ -120,10 +142,8 @@ extension PokemonDetailViewController: UITableViewDataSource {
         }
     }
     
-    func tableView(
-        _ tableView: UITableView,
-        cellForRowAt indexPath: IndexPath
-    ) -> UITableViewCell {
+    func tableView(_ tableView: UITableView,
+                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let statCell = detailTable.dequeueReusableCell(withIdentifier: "sCell",
                                                        for: indexPath) as! StatsCell
@@ -142,26 +162,5 @@ extension PokemonDetailViewController: UITableViewDataSource {
             return moveCell
         }
         return moveCell
-    }
-}
-
-extension PokemonDetailViewController {
-    
-    func showTypes() {
-        type1Label.text = model.types?[0].type?.name
-        if model.types?.count == 2 {
-            type2Label.text = model.types?[1].type?.name
-        } else {
-            type2Label.isHidden = true
-            type2View.isHidden = true
-        }
-    }
-    
-    func pokeImageShow() {
-        if let pokeImage = model.sprites {
-            let imageUrl = URL(string: pokeImage.other.officialArtwork.front_default)
-            pokemonImage.kf.setImage(with: imageUrl)
-        }
-        pokemonImage.contentMode = .scaleAspectFit
     }
 }

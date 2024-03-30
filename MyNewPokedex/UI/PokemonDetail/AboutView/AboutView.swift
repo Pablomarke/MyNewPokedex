@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AboutView: UIView {
+final class AboutView: UIView {
     
     // MARK: Outlets
     @IBOutlet var contentView: UIView!
@@ -49,4 +49,3 @@ class AboutView: UIView {
         baseExpTitle.textColor = .systemGray2
     }
 }
-

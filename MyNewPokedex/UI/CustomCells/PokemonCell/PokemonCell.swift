@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-class PokemonCell: UICollectionViewCell {
+final class PokemonCell: UICollectionViewCell {
     // MARK: Outlets
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var pokeName: UILabel!
