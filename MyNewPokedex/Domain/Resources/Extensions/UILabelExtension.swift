@@ -8,7 +8,6 @@
 import UIKit
 
 extension UILabel {
-    
     func myLetter() {
         textColor = .white
         font = .boldSystemFont(ofSize: 16)

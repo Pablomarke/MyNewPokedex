@@ -8,10 +8,8 @@
 import UIKit
 
 extension UIView {
-    
     func myCorner(corner: Int = 11) {
         layer.cornerRadius = CGFloat(corner)
         backgroundColor = BCOLOR
-        
     }
 }

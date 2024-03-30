@@ -8,17 +8,11 @@
 import Foundation
 
 class PokemonApi {
-    
     // MARK: Constants
     static let shared = PokemonApi()
     
     enum Status {
         static let ok = 200
-    }
-    
-    enum Endpoint {
-        static let baseUrl = "https://pokeapi.co/api/v2/"
-        static let pokemon = "pokemon/"
     }
     
     enum HttpMethod {

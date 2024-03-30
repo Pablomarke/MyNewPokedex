@@ -39,6 +39,7 @@
 		39BE14CB2AA06EF100B6C21E /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39BE14C92AA06EF100B6C21E /* HomeViewController.xib */; };
 		39CA25482A9C7EDF001B4A66 /* CombatDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39CA25472A9C7EDF001B4A66 /* CombatDataView.xib */; };
 		39CA254A2A9C82EA001B4A66 /* CombatDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CA25492A9C82EA001B4A66 /* CombatDataView.swift */; };
+		39D9D8432BB82F8500B5331A /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D9D8422BB82F8500B5331A /* Endpoints.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,7 @@
 		39BE14C92AA06EF100B6C21E /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		39CA25472A9C7EDF001B4A66 /* CombatDataView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CombatDataView.xib; sourceTree = "<group>"; };
 		39CA25492A9C82EA001B4A66 /* CombatDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombatDataView.swift; sourceTree = "<group>"; };
+		39D9D8422BB82F8500B5331A /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,14 +124,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3932C0882A9B6BFB006369C6 /* VsMode */ = {
-			isa = PBXGroup;
-			children = (
-				3932C0892A9B6C8F006369C6 /* VsModeGame.swift */,
-			);
-			path = VsMode;
-			sourceTree = "<group>";
-		};
 		3952239F2B288F2D002CF67A /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,11 +147,11 @@
 			children = (
 				398906F32A93BBE600BF2288 /* LaunchScreen.storyboard */,
 				39B4A07C2A93C1C5009846D4 /* CustomCells */,
+				39701F262B12653F00CBC981 /* HomeView */,
+				39701F272B12655D00CBC981 /* PokemonListView */,
 				39701F2A2B1265B300CBC981 /* CombatView */,
 				39701F292B12659700CBC981 /* SelectPokemonView */,
 				39701F282B12657800CBC981 /* PokemonDetail */,
-				39701F272B12655D00CBC981 /* PokemonListView */,
-				39701F262B12653F00CBC981 /* HomeView */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -230,9 +224,9 @@
 		39701F2D2B1267A600CBC981 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				395223A02B288F34002CF67A /* Resources */,
 				39B4A0712A93BDC6009846D4 /* Model */,
 				39B4A0742A93BE0B009846D4 /* Networking */,
-				3932C0882A9B6BFB006369C6 /* VsMode */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -262,7 +256,6 @@
 				3952239F2B288F2D002CF67A /* App */,
 				39701F2D2B1267A600CBC981 /* Domain */,
 				39701F252B12652A00CBC981 /* UI */,
-				395223A02B288F34002CF67A /* Resources */,
 				398906F62A93BBE600BF2288 /* Info.plist */,
 			);
 			path = MyNewPokedex;
@@ -297,6 +290,8 @@
 		39B4A0712A93BDC6009846D4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				39D9D8442BB82FA800B5331A /* Networking */,
+				3932C0892A9B6C8F006369C6 /* VsModeGame.swift */,
 				39B4A0752A93BE20009846D4 /* Pokemon.swift */,
 				399323322B2A33FD00DB636F /* Player.swift */,
 			);
@@ -337,6 +332,14 @@
 				39BC6BE52AC356FD00AD6635 /* ConstantsStyles.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		39D9D8442BB82FA800B5331A /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				39D9D8422BB82F8500B5331A /* Endpoints.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -496,6 +499,7 @@
 				39B4A06F2A93BC41009846D4 /* PokemonListViewController.swift in Sources */,
 				39B4A0782A93BE67009846D4 /* PokemonApi.swift in Sources */,
 				39B4A0762A93BE20009846D4 /* Pokemon.swift in Sources */,
+				39D9D8432BB82F8500B5331A /* Endpoints.swift in Sources */,
 				39BC6BE32AC33FF500AD6635 /* ViewExtension.swift in Sources */,
 				3993D2EB2A94FB680031409F /* PokemonCell.swift in Sources */,
 				39BE14CA2AA06EF100B6C21E /* HomeViewController.swift in Sources */,
